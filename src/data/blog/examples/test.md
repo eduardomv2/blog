@@ -4,7 +4,7 @@ pubDatetime: 2025-12-06T10:35:00Z
 modDatetime: 2025-12-06T10:35:00Z
 title: El Fascinante Mundo del Gato Doméstico (Felis catus)
 slug: el-gato-domestico-analisis
-featured: true
+featured: false
 draft: false
 tags:
   - data-science

@@ -6,7 +6,7 @@
       "properties": {
         "author": {
           "type": "string",
-          "default": "Sat Naing"
+          "default": "Eduardo M. V."
         },
         "pubDatetime": {
           "anyOf": [
