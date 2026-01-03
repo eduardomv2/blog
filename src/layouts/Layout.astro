@@ -60,7 +60,7 @@ const structuredData = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
-    <Analytics />
+    
     <!-- General Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -140,6 +140,7 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <Analytics />
   </body>
 </html>
 
