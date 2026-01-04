@@ -1,7 +1,7 @@
 ---
 author: eduardomv
-pubDatetime: 2026-1-06T10:35:00Z
-modDatetime: 2026-1-06T10:35:00Z
+pubDatetime: 2026-01-01T10:35:00Z
+modDatetime: 2026-01-01T10:35:00Z
 title: El Fascinante Mundo del Gato Doméstico (Felis catus)
 slug: el-gato-domestico-analisis
 featured: true
