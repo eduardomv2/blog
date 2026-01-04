@@ -1,20 +1,20 @@
 export const SITE = {
   website: "https://www.eduardomv.xyz/", 
-  author: "Eduardo M. V.",
-  profile: "https://eduardomv.xyz/",
-  desc: "minimal blog",
+  author: "Eduardo M.V.",
+  profile: "" /* actualizar cuando ya tenga portfolio o si lo hago en about redirigir a ese: */,
+  desc: "blog sobre tecnología",
   title: "eduardomv.xyz",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "minho.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
+  postPerIndex: 5,
+  postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {
-    enabled: false,
-    text: "Edit page",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    enabled: true,
+    text: "Proponer Cambios",
+    url: "https://github.com/eduardomv2/blog/edit/main/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"

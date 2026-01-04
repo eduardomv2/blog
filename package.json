@@ -4,7 +4,7 @@
   "version": "5.5.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "npx astro check && npx astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
+    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",

@@ -6,7 +6,7 @@
       "properties": {
         "author": {
           "type": "string",
-          "default": "Eduardo M. V."
+          "default": "Eduardo M.V."
         },
         "pubDatetime": {
           "anyOf": [

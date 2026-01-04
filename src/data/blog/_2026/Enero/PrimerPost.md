@@ -1,11 +1,12 @@
 ---
 author: lala
-pubDatetime: 2025-12-06T10:35:00Z
-modDatetime: 2025-12-06T10:35:00Z
+pubDatetime: 2026-1-06T10:35:00Z
+modDatetime: 2026-1-06T10:35:00Z
 title: El Fascinante Mundo del Gato Doméstico (Felis catus)
 slug: el-gato-domestico-analisis
-featured: true
+featured: false
 draft: false
+ogImage: ../../../../assets/images/GatoDomestico.png
 tags:
   - data-science
   - curiosidades
@@ -13,7 +14,7 @@ tags:
 description: Un vistazo analítico y simple a las estadísticas y el comportamiento de Felis catus, el compañero felino más popular.
 ---
 
-Aquí tienes un post simple que respeta las reglas de AstroPaper, utilizando el título como H1 (Frontmatter) y comenzando el cuerpo del artículo con H2.
+Esta es una publicación meramente de prueba.
 
 ## Table of contents
 
@@ -23,7 +24,7 @@ El **gato doméstico** (*Felis catus*) es una de las mascotas más populares del
 
 Según estimaciones globales, la población de gatos supera los **600 millones**, generando millones de puntos de datos diarios para analizar preferencias de marca de comida, visitas al veterinario y actividad física.
 
-### Comportamiento Felino y Machine Learning (H3)
+### Comportamiento Felino y Machine Learning
 
 Los científicos del comportamiento utilizan cada vez más modelos de **Machine Learning** para categorizar los patrones de comunicación felina. Se están desarrollando algoritmos para distinguir entre un "maullido de hambre", un "maullido de atención" y un "maullido de alarma".
 
