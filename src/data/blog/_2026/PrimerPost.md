@@ -6,7 +6,7 @@ title: El Fascinante Mundo del Gato Doméstico (Felis catus)
 slug: el-gato-domestico-analisis
 featured: true
 draft: false
-ogImage: ../../../../assets/images/GatoDomestico.png
+ogImage: ../../../assets/images/GatoDomestico.png
 tags:
   - data-science
   - curiosidades

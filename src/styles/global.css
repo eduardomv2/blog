@@ -137,7 +137,7 @@ html[data-theme="dark"] {
   encapsula: @apply bg-gray-200/50 rounded-md px-2 py-1 transition-colors;
 }*/
 .active-nav {
-  @apply bg-gray-300/50 rounded-md px-2 py-1 transition-colors;
+  @apply underline decoration-solid decoration-1 underline-offset-8;
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
