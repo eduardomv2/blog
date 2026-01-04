@@ -6,7 +6,6 @@ title: El Fascinante Mundo del Gato Doméstico (Felis catus)
 slug: test
 featured: false
 draft: false
-ogImage: default
 tags:
   - data-science
   - curiosidades
