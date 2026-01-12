@@ -39,6 +39,10 @@ Para instalar Hyprland y Fedora 43+ recomiendo:
   - [Hyprland Tutorial](https://www.youtube.com/watch?v=l2Qjy4xk0aA)
   - [Nvidia Tutorial](https://www.youtube.com/watch?v=k5uxX2U3tYE)
 
+## Repositorio con los archivos de configuración:
+
+En cada apartado dejo el link directo para descargar el archivo de configuración de mi repositorio en GitHub, sin embargo aqui te lo dejo [`Repositorio.`](https://github.com/eduardomv2/mi-config-hyprland)
+
 ## Waybar
 
 Lo primero que cambié ya dentro de Hyprland fue el tema y layout de la barra de tareas:
