@@ -22,15 +22,16 @@ Esta configuración está pensada en ser minimalista, más adaptada a comandos e
 
 ## Setup
 
-__Fedora 43 + Hyprland 0.53.1__
+__Fedora 43 + Hyprland 0.53.1 con el repositorio JakooLit__
 
 Para instalar Hyprland y Fedora 43+ recomiendo:
 
-**Opción 1**: Crear una USB BOOTEABLE con la ISO de Fedora usando Rufus e ir haciendo los pasos de la instalación normales (El paso más importante es ***activar instalar paquetes de terceros***). Si tienes una gráfica __NVIDIA__ recomiendo instalar los drivers una vez tengas Fedora, aquí te dejo la guía que usé yo.
+**Opción 1**: Crear una USB BOOTEABLE con la ISO de Fedora usando Rufus e ir haciendo los pasos de la instalación normales (El paso más importante es ***activar instalar paquetes de terceros***). Si tienes una gráfica __NVIDIA__ recomiendo instalar los drivers una vez tengas Fedora, aquí te dejo la guía que usé yo. Por ultimo instalar hyprland para fedora desde el repositorio de Jakoolit para tener sus dotfiles y empezar a modificarlos un poco.
 
   - [Fedora](https://fedoraproject.org/es/workstation/download)
   - [Rufus](https://rufus.ie/en/#download)
-  - [Nvidia Guía](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file#2-secure-boot-key-enrollment)
+  - [Nvidia Guía](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file)
+  - [JakooLit](https://github.com/JaKooLit/Fedora-Hyprland)
 
 **Opción 2**: Tutoriales más detallados (YT):
 
