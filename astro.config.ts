@@ -22,7 +22,11 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMath, remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkMath,
+      [remarkToc, { heading: "Índice" }],
+      [remarkCollapse, { test: "Índice", summary: "Abrir Índice" }],
+    ],
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes  default themes: min-light, night-owl

@@ -15,7 +15,7 @@ description: Un vistazo analítico y simple a las estadísticas y el comportamie
 
 Esta es una publicación meramente de prueba.
 
-## Table of contents
+## Índice
 
 ## El Gato Doméstico y la Data
 
