@@ -9,7 +9,9 @@ tags:
   - linux
   - hyprland
   - fedora
-description: Guía completa de mi configuración minimalista en Linux con Hyprland, Fedora 43, y personalizaciones de terminal, waybar, rofi y más.
+ogImage: src/assets/images/fedora_hyprland.png
+
+description: Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más.
 ---
 
 Hace unas semanas hice el cambio de Windows a Linux como mi actual sistema operativo, por ello he estado probando configuraciones, estilos y aplicaciones para adaptarlo a mis necesidades y gustos.
@@ -20,24 +22,21 @@ Esta configuración está pensada en ser minimalista, más adaptada a comandos e
 
 ## Setup
 
-**Fedora 43 + Hyprland 0.53.1**
+__Fedora 43 + Hyprland 0.53.1__
 
-Para instalar Fedora 43+ y Hyprland recomiendo:
+Para instalar Hyprland y Fedora 43+ recomiendo:
 
-Crear una USB BOOTEABLE con la ISO de Fedora usando Rufus e ir haciendo los pasos de la instalación normales (El paso más importante es activar instalar paquetes de terceros).
+**Opción 1**: Crear una USB BOOTEABLE con la ISO de Fedora usando Rufus e ir haciendo los pasos de la instalación normales (El paso más importante es ***activar instalar paquetes de terceros***). Si tienes una gráfica __NVIDIA__ recomiendo instalar los drivers una vez tengas Fedora, aquí te dejo la guía que usé yo.
 
-- [Fedora](https://fedoraproject.org/es/workstation/download)
-- [Rufus](https://rufus.ie/en/#download)
+  - [Fedora](https://fedoraproject.org/es/workstation/download)
+  - [Rufus](https://rufus.ie/en/#download)
+  - [Nvidia Guía](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file#2-secure-boot-key-enrollment)
 
-Si tienes una gráfica NVIDIA recomiendo instalar los drivers una vez tengas Fedora, aquí te dejo la guía que usé yo:
+**Opción 2**: Tutoriales más detallados (YT):
 
-- [Nvidia Guide](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file#2-secure-boot-key-enrollment)
-
-Si quieres ver tutoriales más detallados:
-
-- [Fedora Tutorial](https://www.youtube.com/watch?v=rqU3s-YCSew&t=54s)
-- [Hyprland Tutorial](https://www.youtube.com/watch?v=l2Qjy4xk0aA)
-- [Nvidia Tutorial](https://www.youtube.com/watch?v=k5uxX2U3tYE)
+  - [Fedora Tutorial](https://www.youtube.com/watch?v=rqU3s-YCSew&t=54s)
+  - [Hyprland Tutorial](https://www.youtube.com/watch?v=l2Qjy4xk0aA)
+  - [Nvidia Tutorial](https://www.youtube.com/watch?v=k5uxX2U3tYE)
 
 ## Waybar
 
@@ -50,10 +49,10 @@ Lo primero que cambié ya dentro de Hyprland fue el tema y layout de la barra de
 
 Aquí solamente modifiqué un poco los archivos de configuración para quitar información y botones que no me interesaban, dividir mejor los módulos, optimizar el botón de hypersunset y cambiar el color secundario.
 
-- **config**: Eliminar información que no me interesa y agregar líneas de separación en los módulos. `/home/{user}/.config/waybar/config`
-- **style.css**: Cambiar colores. `/home/{user}/.config/waybar/style.css`
-- **Hyprsunset.sh**: Modificar el script Hyprsunset ya que estaba mal optimizado y al volver al modo normal tardaba en cambiar. `/home/{user}/.config/hypr/scripts/Hyprsunset.sh`
-- **ModulesCustom**: Modificar el bloque de hyprsunset para que funcione bien el script. `/home/{user}/.config/waybar/ModulesCustom`
+- [**config**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/config): Eliminar información que no me interesa y agregar líneas de separación en los módulos izquierda y derecha. `/home/{user}/.config/waybar/config`
+- [**style.css**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/style.css): Cambiar colores. `/home/{user}/.config/waybar/style.css`
+- [**Hyprsunset.sh**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/Hyprsunset.sh): Modificar el script Hyprsunset ya que estaba mal optimizado y al volver al modo normal tardaba en cambiar. `/home/{user}/.config/hypr/scripts/Hyprsunset.sh`
+- [**ModulesCustom**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/ModulesCustom): Modificar el bloque de hyprsunset para que funcione de acuerdo al cambio en el script. `/home/{user}/.config/waybar/ModulesCustom`
 
 ![Configuración de Waybar](@/assets/images/waybar.png)
 
@@ -87,7 +86,7 @@ Otros temas que me gustaron:
 
 Para la terminal uso **Ghostty**, probé Kitty que viene por defecto en Hyprland pero no me gustó del todo (más en específico su interfaz y la configuración) así que empecé a probar una alternativa.
 
-Si te gusta Kitty y solo quieres revisar más temas usa `Super + Shift + E`, en el apartado de *Utilities* selecciona "choose kitty terminal theme" donde puedes ver los distintos temas que tiene por defecto.
+Si te gusta Kitty y solo quieres revisar más temas usa `Super + Shift + E`, en el apartado de *Utilities* selecciona "choose kitty terminal theme" ahí podrás ver los distintos temas que tiene por defecto.
 
 ### Cambiar de terminal
 
@@ -101,7 +100,7 @@ $term = ghostty # Terminal
 
 Tema que uso en Ghostty:
 
-- **Tema**: Detuned
+- **Tema**: `Detuned`
 
 ![Detuned](@/assets/images/Detuned.png)
 
@@ -115,15 +114,15 @@ Si quieres probar todos los temas disponibles puedes buscar desde la terminal es
 
 Otros temas que me gustaron:
 
-**Tema: Abernathy**
+- **Tema: `Abernathy`**
 
 ![Abernathy](@/assets/images/Abernathy.png)
 
-**Tema: Black Metal (Marduk)**
+- **Tema: `Black Metal (Marduk)`**
 
 ![Black_Metal](@/assets/images/Black_Metal.png)
 
-**Tema: Dimidium**
+- **Tema: `Dimidium`**
 
 ![Dimidium](@/assets/images/Dimidium.png)
 
@@ -131,16 +130,17 @@ Otros temas que me gustaron:
 
 Para ZSH (intérprete de comandos) encontré 2 temas a mi gusto y que iba a la par del diseño de esta configuración:
 
-- Tema: nicoulaj
-- Tema: sunrise
+- **Tema: `nicoulaj`**
+- **Tema: `sunrise`**
 
 En mi caso, opté por usar el tema Nicoulaj.
 
-Para entrar al menú de temas usa `Super + Shift + O`, escribe el nombre del tema y dale a Enter. Si quieres ver todos los temas disponibles entra a [https://github.com/ohmyzsh/ohmyzsh/wiki/themes](https://github.com/ohmyzsh/ohmyzsh/wiki/themes).
-
 ![nicoulaj](@/assets/images/nicoulaj.png)
 
-**Tema sunrise:**
+Para entrar al menú de temas usa `Super + Shift + O`, escribe el nombre del tema y dale a Enter. Si quieres ver todos los temas disponibles entra a [Repositorio oficial de ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/themes).
+
+
+- **Tema: `sunrise`**
 
 ![Sunrise](@/assets/images/sunrise.png)
 
@@ -148,7 +148,7 @@ Para entrar al menú de temas usa `Super + Shift + O`, escribe el nombre del tem
 
 Aquí quería lograr que al iniciar mi terminal se pudiera ver un .txt que contenga una figura ASCII o en mi caso una imagen → ASCII de mis gatos.
 
-Para convertir mis imágenes usé esta página [https://www.ascii-art-generator.org/](https://www.ascii-art-generator.org/) dando un ancho de 400 para que se viera con más detalle. Tuve un problema y es que al ser de un ancho (líneas) tan grande, el .txt que generaba no era adecuado para el archivo Compact ya que este abarca alrededor de 40 líneas. Por ello opté en tomar captura del ASCII dentro de la página, lo pasaba a Canva y removía el fondo. En caso de que no se pudiera remover el fondo, abría el .txt en mi editor de texto y le tomaba una captura (gracias al modo oscuro, lo que asimilaba los temas de mi terminal).
+Para convertir mis imágenes usé esta página [Crear ASCII](https://www.ascii-art-generator.org/) dando un __ancho de 400__ para que se viera con más detalle. Tuve un problema y es que al ser de un ancho (líneas) tan grande, el .txt que generaba no era adecuado para el archivo Compact ya que este abarca alrededor de 40 líneas. Por ello opté en tomar captura del ASCII dentro de la página, lo pasaba a Canva y removía el fondo. En caso de que no se pudiera remover el fondo, abría el .txt en mi editor de texto y le tomaba una captura (gracias al modo oscuro, lo que asimilaba los temas de mi terminal).
 
 Si quieres probar un ASCII pequeño que no necesite mucha resolución para que pueda caber en la terminal prueba el tamaño de ancho mínimo (40), este ancho sí te permite usar el .txt dentro del archivo Compact.
 
@@ -158,8 +158,8 @@ Dentro de Fastfetch solo modifiqué 2 archivos de configuración para adaptar la
 
 **Nota**: Tanto si usas un .txt o una imagen, recomiendo subirla en la carpeta de fastfetch por futuros imprevistos.
 
-- **config.jsonc**: Cambiar posicionamiento de los colores. `/home/{user}/.config/fastfetch/config.jsonc`
-- **config-compact.jsonc**: `/home/{user}/.config/fastfetch/config-compact.jsonc`
+- [**config.jsonc**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config.jsonc): Cambiar posicionamiento de los colores. `/home/{user}/.config/fastfetch/config.jsonc`
+- [**config-compact.jsonc**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config-compact.jsonc): Adaptar Img. `/home/{user}/.config/fastfetch/config-compact.jsonc`
 
 ![Fastfetch](@/assets/images/Fastfetch.png)
 
@@ -177,12 +177,12 @@ $files = nautilus # File Manager
 
 ## Hyprlock
 
-En Hyprlock hice un cambio queriendo lograr un estilo similar a [https://github.com/FireDrop6000/hyprland-mydots](https://github.com/FireDrop6000/hyprland-mydots) pero que sea compatible con mi configuración, solo dejé lo esencial: fecha, hora, usuario, contraseña, batería y por último lo que estoy escuchando. Aquí tuve que agregar un script para que pudiera detectarlo estando en la pantalla de bloqueo.
+En Hyprlock hice un cambio queriendo lograr un estilo similar a [FireDrop6000 Hyprlock](https://github.com/FireDrop6000/hyprland-mydots) pero que sea **compatible** con mi configuración. Dejé solo lo esencial: fecha, hora, usuario, contraseña, batería y por último lo que estoy escuchando. Aquí tuve que agregar un script para que pudiera detectarlo estando en la pantalla de bloqueo.
 
 ### Archivos de configuración
 
-- **music_status.sh**: Agregar este script a `/home/{user}/.config/hypr/scripts`.
-- **hyprlock.conf**: Modifiqué el que venía por defecto. `/home/{user}/.config/hypr/hyprlock.conf`
+- [**music_status.sh**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/music_status.sh): Agregar este script a `/home/{user}/.config/hypr/scripts`.
+- [**hyprlock.conf**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/hyprlock.conf): Modifiqué el que venía por defecto y agregué el script para que detectara lo que se esté escuchando. `/home/{user}/.config/hypr/hyprlock.conf`
 
 ![wal1](@/assets/images/wal1.png)
 ![wal2](@/assets/images/wal2.png)
@@ -196,7 +196,7 @@ En mis KeyBinds solo modifiqué 3, conforme vaya usando más cada día lo iré c
 - Bloqueo de pantalla: `Super + L`
 - Abrir clipboard: `Super + V`
 
-Archivo de configuración: `/home/{user}/.config/hypr/configs/Keybinds.conf`
+[Archivo de configuración](https://github.com/eduardomv2/mi-config-hyprland/blob/main/keybinds/keybinds~): `/home/{user}/.config/hypr/configs/Keybinds.conf`
 
 ## Fondos de Pantalla
 
@@ -204,13 +204,10 @@ Por último aquí te dejo todos los wallpapers que he usado en esta configuraci�
 
 Usa `Super + Alt + O` para darle transparencia a las ventanas.
 
-- Pantalla Inicio: Fog-Forest-Everforest
-- Pantalla Inicio: Mountain
-- Pantalla de Bloqueo: wal
-- Pantalla de Bloqueo: wal2
-- Pantalla de Bloqueo: wal3
-
-<!-- Imagen: Wallpaper 1 -->
-<!-- Imagen: Wallpaper 2 -->
+- Pantalla Inicio: [Fog-Forest-Everforest](https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/Fog-Forest-Everforest.png)
+- Pantalla Inicio: [Mountain](https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/Mountain.png)
+- Pantalla de Bloqueo: [wal](https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal.png)
+- Pantalla de Bloqueo: [wal2](https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal2.jpg)
+- Pantalla de Bloqueo: [wal3](https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal3.jpg)
 
 Espero y te sirva esta configuración, estaré publicando más sobre ello en futuros posts. ^^

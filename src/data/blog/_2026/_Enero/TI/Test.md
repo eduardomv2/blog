@@ -10,6 +10,7 @@ tags:
   - data-science
   - curiosidades
   - animales
+
 description: Un vistazo analítico y simple a las estadísticas y el comportamiento de Felis catus, el compañero felino más popular.
 ---
 
