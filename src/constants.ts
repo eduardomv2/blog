@@ -7,6 +7,7 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconInstagram from "@/assets/icons/IconInstagram.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -62,5 +63,10 @@ export const SHARE_LINKS: Social[] = [
     linkTitle: `Share this post on X`,
     icon: IconBrandX,
   },
-
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/create/",
+    linkTitle: `Share this post on Instagram`,
+    icon: IconInstagram,
+  },
 ] as const;

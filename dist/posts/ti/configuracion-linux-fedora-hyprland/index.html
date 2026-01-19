@@ -1,0 +1,510 @@
+<!DOCTYPE html><html dir="ltr" lang="es" class="scroll-smooth" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/"><meta name="generator" content="Astro v5.16.8"><!-- General Meta Tags --><title>Mi Configuración de Linux usando Hyprland + Fedora | eduardomv.xyz</title><meta name="title" content="Mi Configuración de Linux usando Hyprland + Fedora | eduardomv.xyz"><meta name="description" content="Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más."><meta name="author" content="eduardomv"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Mi Configuración de Linux usando Hyprland + Fedora | eduardomv.xyz"><meta property="og:description" content="Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más."><meta property="og:url" content="https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/"><meta property="og:image" content="https://www.eduardomv.xyz/_astro/fedora_hyprland.C5QH8uuw.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2026-01-11T18:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/"><meta property="twitter:title" content="Mi Configuración de Linux usando Hyprland + Fedora | eduardomv.xyz"><meta property="twitter:description" content="Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más."><meta property="twitter:image" content="https://www.eduardomv.xyz/_astro/fedora_hyprland.C5QH8uuw.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Mi Configuración de Linux usando Hyprland + Fedora | eduardomv.xyz","image":"https://www.eduardomv.xyz/_astro/fedora_hyprland.C5QH8uuw.png","datePublished":"2026-01-11T18:00:00.000Z","author":[{"@type":"Person","name":"eduardomv"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="eduardomv.xyz" href="https://www.eduardomv.xyz/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"><link rel="stylesheet" href="/_astro/about.BByvznG4.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-fam6wyqg-1"] { view-transition-name: mi-configuracion-de-linux-usando-hyprland-fedora; }@layer astro { ::view-transition-old(mi-configuracion-de-linux-usando-hyprland-fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(mi-configuracion-de-linux-usando-hyprland-fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(mi-configuracion-de-linux-usando-hyprland-fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(mi-configuracion-de-linux-usando-hyprland-fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: linux; }@layer astro { ::view-transition-old(linux) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(linux) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(linux) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(linux) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: hyprland; }@layer astro { ::view-transition-old(hyprland) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(hyprland) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(hyprland) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(hyprland) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-4"] { view-transition-name: fedora; }@layer astro { ::view-transition-old(fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(fedora) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Ir al Contenido
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> eduardomv.xyz </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Abrir Menú" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Publicaciones
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/about">
+Prox.
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archivados" title="Archivados"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">archivados</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Buscar"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Buscar</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Modo Claro y Oscuro" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>regresar</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-transition-scope="astro-fam6wyqg-1"> Mi Configuración de Linux usando Hyprland + Fedora </h1> <div class="my-2 flex items-center gap-2"> <div class="flex items-center gap-x-2 opacity-80"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm sm:text-base" datetime="2026-01-11T18:00:00.000Z">11 Jan, 2026</time> </div> <span aria-hidden="true" class="max-sm:hidden">|</span> <a href="https://github.com/eduardomv2/blog/edit/main/src/data/blog/_2026/_Enero/TI/fedora_hyprland.md" target="_blank" rel="noopener noreferrer" class="flex justify-baseline gap-1.5 opacity-80 hover:text-accent max-sm:hidden"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span>Proponer Cambios</span></a> </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <p>Hace unas semanas hice el cambio de Windows a Linux como mi actual sistema operativo, por ello he estado probando configuraciones, estilos y aplicaciones para adaptarlo a mis necesidades y gustos.</p>
+<p>Esta configuración está pensada en ser minimalista, más adaptada a comandos en Windows y con colores monocromáticos/verdes.</p>
+<h2 id="índice">Índice</h2>
+<p></p><details><summary>Abrir Índice</summary><p></p>
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#dotfiles">Dotfiles:</a></li>
+<li><a href="#waybar">Waybar</a>
+<ul>
+<li><a href="#archivos-de-configuraci%C3%B3n">Archivos de configuración</a></li>
+</ul>
+</li>
+<li><a href="#rofi">Rofi</a></li>
+<li><a href="#terminal">Terminal</a>
+<ul>
+<li><a href="#cambiar-de-terminal">Cambiar de terminal</a></li>
+<li><a href="#tema">Tema</a></li>
+<li><a href="#zsh">ZSH</a></li>
+</ul>
+</li>
+<li><a href="#fastfetch">Fastfetch</a>
+<ul>
+<li><a href="#archivos-de-configuraci%C3%B3n-1">Archivos de Configuración</a></li>
+</ul>
+</li>
+<li><a href="#administrador-de-archivos">Administrador de Archivos</a></li>
+<li><a href="#hyprlock">Hyprlock</a>
+<ul>
+<li><a href="#archivos-de-configuraci%C3%B3n-2">Archivos de configuración</a></li>
+</ul>
+</li>
+<li><a href="#keybinds">KeyBinds</a></li>
+<li><a href="#fondos-de-pantalla">Fondos de Pantalla</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="setup">Setup</h2>
+<p><strong>Fedora 43 + Hyprland 0.53.1 con el repositorio JakooLit</strong></p>
+<p>Para instalar Hyprland y Fedora 43+ recomiendo:</p>
+<p><strong>Opción 1</strong>: Crear una USB BOOTEABLE con la ISO de Fedora usando Rufus e ir haciendo los pasos de la instalación normales (El paso más importante es <em><strong>activar instalar paquetes de terceros</strong></em>). Si tienes una gráfica <strong>NVIDIA</strong> recomiendo instalar los drivers una vez tengas Fedora, aquí te dejo la guía que usé yo. Por ultimo instalar hyprland para fedora desde el repositorio de Jakoolit para tener sus dotfiles y empezar a modificarlos un poco.</p>
+<ul>
+<li><a href="https://fedoraproject.org/es/workstation/download">Fedora</a></li>
+<li><a href="https://rufus.ie/en/#download">Rufus</a></li>
+<li><a href="https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file">Nvidia Guía</a></li>
+<li><a href="https://github.com/JaKooLit/Fedora-Hyprland">JakooLit</a></li>
+</ul>
+<p><strong>Opción 2</strong>: Tutoriales más detallados (YT):</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rqU3s-YCSew&#x26;t=54s">Fedora Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=l2Qjy4xk0aA">Hyprland Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=k5uxX2U3tYE">Nvidia Tutorial</a></li>
+</ul>
+<h2 id="dotfiles">Dotfiles:</h2>
+<p>En cada apartado dejo el link directo para descargar el archivo de configuración sin embargo aquí te dejo la carpeta raíz <a href="https://github.com/eduardomv2/mi-config-hyprland"><code>Repositorio.</code></a></p>
+<h2 id="waybar">Waybar</h2>
+<p>Lo primero que cambié ya dentro de Hyprland fue el tema y layout de la barra de tareas:</p>
+<ul>
+<li><strong>Tema</strong>: [Light] Monochrome Contrast. Usar <code>Super + Ctrl + B</code> para cambiar de Temas.</li>
+<li><strong>Layout</strong>: [TOP] Default Laptop (Old v2). Usar <code>Super + Alt + B</code> para cambiar de Layout.</li>
+</ul>
+<h3 id="archivos-de-configuración">Archivos de configuración</h3>
+<p>Aquí solamente modifiqué un poco los archivos de configuración para quitar información y botones que no me interesaban, dividir mejor los módulos, optimizar el botón de hypersunset y cambiar el color secundario.</p>
+<ul>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/config"><strong>config</strong></a>: Eliminar información que no me interesa y agregar líneas de separación en los módulos izquierda y derecha. <code>/home/{user}/.config/waybar/config</code></li>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/style.css"><strong>style.css</strong></a>: Cambiar colores. <code>/home/{user}/.config/waybar/style.css</code></li>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/Hyprsunset.sh"><strong>Hyprsunset.sh</strong></a>: Modificar el script Hyprsunset ya que estaba mal optimizado y al volver al modo normal tardaba en cambiar. <code>/home/{user}/.config/hypr/scripts/Hyprsunset.sh</code></li>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/ModulesCustom"><strong>ModulesCustom</strong></a>: Modificar el bloque de hyprsunset para que funcione de acuerdo al cambio en el script. <code>/home/{user}/.config/waybar/ModulesCustom</code></li>
+</ul>
+<p><img alt="Configuración de Waybar" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/waybar.CqgEeoDZ_1Src3f.webp" srcset="/_astro/waybar.CqgEeoDZ_ZekUoo.webp 640w, /_astro/waybar.CqgEeoDZ_2tet7g.webp 750w, /_astro/waybar.CqgEeoDZ_24tGgw.webp 828w, /_astro/waybar.CqgEeoDZ_Z2hOFSc.webp 1080w, /_astro/waybar.CqgEeoDZ_16u7SR.webp 1280w, /_astro/waybar.CqgEeoDZ_2vstu.webp 1668w, /_astro/waybar.CqgEeoDZ_1Src3f.webp 1920w"></p>
+<p>Otros temas que me gustaron:</p>
+<p><strong>[TOP] Default Laptop (Old v1)</strong>
+<img alt="Waybar Old v1" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1918px) 1918px, 100vw"  data-astro-image="constrained" width="1918" height="46" src="/_astro/waybarv1.3a2Z8dRQ_NvMcW.webp" srcset="/_astro/waybarv1.3a2Z8dRQ_Z8qWlI.webp 640w, /_astro/waybarv1.3a2Z8dRQ_lPFkF.webp 750w, /_astro/waybarv1.3a2Z8dRQ_c0SL0.webp 828w, /_astro/waybarv1.3a2Z8dRQ_Z180vok.webp 1080w, /_astro/waybarv1.3a2Z8dRQ_Z168E3m.webp 1280w, /_astro/waybarv1.3a2Z8dRQ_Z1ipKeg.webp 1668w, /_astro/waybarv1.3a2Z8dRQ_NvMcW.webp 1918w"></p>
+<p><strong>[TOP] Default Laptop (Old v3)</strong>
+<img alt="Waybar Old v3" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1919px) 1919px, 100vw"  data-astro-image="constrained" width="1919" height="43" src="/_astro/waybarv3.QF92o0x3_ZWRfjQ.webp" srcset="/_astro/waybarv3.QF92o0x3_EQgsx.webp 640w, /_astro/waybarv3.QF92o0x3_1a8T9V.webp 750w, /_astro/waybarv3.QF92o0x3_2fGtG.webp 828w, /_astro/waybarv3.QF92o0x3_Z2cAU2l.webp 1080w, /_astro/waybarv3.QF92o0x3_Z1Fhs7y.webp 1280w, /_astro/waybarv3.QF92o0x3_2uKRq0.webp 1668w, /_astro/waybarv3.QF92o0x3_ZWRfjQ.webp 1919w"></p>
+<h2 id="rofi">Rofi</h2>
+<p>Para el lanzador de aplicaciones uso Rofi que viene por defecto con Hyprland.</p>
+<ul>
+<li><strong>Tema</strong>: <code>saint-rofi</code></li>
+</ul>
+<p><img alt="Tema Rofi Saint" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1919px) 1919px, 100vw"  data-astro-image="constrained" width="1919" height="1080" src="/_astro/rofi.BVDnaUjG_1yVShS.webp" srcset="/_astro/rofi.BVDnaUjG_Z1QNxxJ.webp 640w, /_astro/rofi.BVDnaUjG_PRsf3.webp 750w, /_astro/rofi.BVDnaUjG_1EOqAt.webp 828w, /_astro/rofi.BVDnaUjG_27KHPu.webp 1080w, /_astro/rofi.BVDnaUjG_Z1XfV1R.webp 1280w, /_astro/rofi.BVDnaUjG_2e7jQQ.webp 1668w, /_astro/rofi.BVDnaUjG_1yVShS.webp 1919w"></p>
+<p>Aquí no hice modificaciones, el tema está como me gustaba. Usar <code>Super + Ctrl + R</code> para cambiar entre temas.</p>
+<p>Otros temas que me gustaron:</p>
+<ul>
+<li>
+<p><strong>Tema:</strong> <code>KooL_style-5</code>
+<img alt="Rofi Style 5" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/KooL_style-5.oDdRb52q_Z1UtMmi.webp" srcset="/_astro/KooL_style-5.oDdRb52q_2h3rrc.webp 640w, /_astro/KooL_style-5.oDdRb52q_1kN2Uv.webp 750w, /_astro/KooL_style-5.oDdRb52q_1FaSKn.webp 828w, /_astro/KooL_style-5.oDdRb52q_ZAay8i.webp 1080w, /_astro/KooL_style-5.oDdRb52q_1bq8Fi.webp 1280w, /_astro/KooL_style-5.oDdRb52q_Z1yRB1g.webp 1668w, /_astro/KooL_style-5.oDdRb52q_Z1UtMmi.webp 1920w"></p>
+</li>
+<li>
+<p><strong>Tema:</strong> <code>KooL_style-9</code>
+<img alt="Rofi Style 9" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/KooL_style-9.ArTYJSa5_K6hAn.webp" srcset="/_astro/KooL_style-9.ArTYJSa5_efg2f.webp 640w, /_astro/KooL_style-9.ArTYJSa5_ZH08tr.webp 750w, /_astro/KooL_style-9.ArTYJSa5_ZmChDz.webp 828w, /_astro/KooL_style-9.ArTYJSa5_25pvOn.webp 1080w, /_astro/KooL_style-9.ArTYJSa5_Z1daUaX.webp 1280w, /_astro/KooL_style-9.ArTYJSa5_16HsVp.webp 1668w, /_astro/KooL_style-9.ArTYJSa5_K6hAn.webp 1920w"></p>
+</li>
+</ul>
+<h2 id="terminal">Terminal</h2>
+<p>Para la terminal uso <strong>Ghostty</strong>, probé Kitty que viene por defecto en Hyprland pero no me gustó del todo (más en específico su interfaz y la configuración) así que empecé a probar una alternativa.</p>
+<p>Si te gusta Kitty y solo quieres revisar más temas usa <code>Super + Shift + E</code>, en el apartado de <em>Utilities</em> selecciona “choose kitty terminal theme” ahí podrás ver los distintos temas que tiene por defecto.</p>
+<h3 id="cambiar-de-terminal">Cambiar de terminal</h3>
+<p>Si te gustó más Ghostty hay que cambiar de terminal en el archivo de configuración. <code>/home/{user}/.config/hypr/UserConfigs/01-UserDefaults.conf</code> modificando la línea:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">$term</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> = ghostty </span><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># Terminal</span></span></code></pre>
+<h3 id="tema">Tema</h3>
+<p>Tema que uso en Ghostty:</p>
+<ul>
+<li><strong>Tema</strong>: <code>Detuned</code></li>
+</ul>
+<p><img alt="Detuned" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1919px) 1919px, 100vw"  data-astro-image="constrained" width="1919" height="1080" src="/_astro/Detuned.CcL7FxC1_16nmMO.webp" srcset="/_astro/Detuned.CcL7FxC1_1hh0ly.webp 640w, /_astro/Detuned.CcL7FxC1_22h3M3.webp 750w, /_astro/Detuned.CcL7FxC1_1oI4oe.webp 828w, /_astro/Detuned.CcL7FxC1_1x1kfE.webp 1080w, /_astro/Detuned.CcL7FxC1_Z1TCLd3.webp 1280w, /_astro/Detuned.CcL7FxC1_ZaBoR1.webp 1668w, /_astro/Detuned.CcL7FxC1_16nmMO.webp 1919w"></p>
+<p>Si sabes el nombre del tema puedes agregarlo dirigiéndote al archivo de configuración escribiendo en la terminal <code>ghostty +edit-config</code> o ir directamente a la ruta <code>/home/{user}/.config/ghostty/config</code> y agregar la siguiente línea:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">theme</span><span style="--shiki-light:#2B5581;--shiki-dark:#ECC48D"> =</span><span style="--shiki-light:#2B5581;--shiki-dark:#ECC48D"> Detuned</span></span></code></pre>
+<p>Si quieres probar todos los temas disponibles puedes buscar desde la terminal escribiendo: <code>ghostty +list-themes</code></p>
+<p>Otros temas que me gustaron:</p>
+<ul>
+<li><strong>Tema: <code>Abernathy</code></strong></li>
+</ul>
+<p><img alt="Abernathy" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/Abernathy.BQ1sSC1d_1v5Mp4.webp" srcset="/_astro/Abernathy.BQ1sSC1d_1Y0I56.webp 640w, /_astro/Abernathy.BQ1sSC1d_Eg7eU.webp 750w, /_astro/Abernathy.BQ1sSC1d_ZJIt76.webp 828w, /_astro/Abernathy.BQ1sSC1d_1c8LnF.webp 1080w, /_astro/Abernathy.BQ1sSC1d_ZDMV52.webp 1280w, /_astro/Abernathy.BQ1sSC1d_210bpV.webp 1668w, /_astro/Abernathy.BQ1sSC1d_1v5Mp4.webp 1920w"></p>
+<ul>
+<li><strong>Tema: <code>Black Metal (Marduk)</code></strong></li>
+</ul>
+<p><img alt="Black_Metal" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/Black_Metal.HPcto-EF_Z1vQ1q8.webp" srcset="/_astro/Black_Metal.HPcto-EF_Z1443wj.webp 640w, /_astro/Black_Metal.HPcto-EF_ZGTjjb.webp 750w, /_astro/Black_Metal.HPcto-EF_Z1SM5US.webp 828w, /_astro/Black_Metal.HPcto-EF_Zg6uEh.webp 1080w, /_astro/Black_Metal.HPcto-EF_1urdDO.webp 1280w, /_astro/Black_Metal.HPcto-EF_1Dv1ud.webp 1668w, /_astro/Black_Metal.HPcto-EF_Z1vQ1q8.webp 1920w"></p>
+<ul>
+<li><strong>Tema: <code>Dimidium</code></strong></li>
+</ul>
+<p><img alt="Dimidium" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1923px) 1923px, 100vw"  data-astro-image="constrained" width="1923" height="1080" src="/_astro/Dimidium.DsUFupIY_Z27I9Uj.webp" srcset="/_astro/Dimidium.DsUFupIY_Z1JKrTa.webp 640w, /_astro/Dimidium.DsUFupIY_ZWKwv9.webp 750w, /_astro/Dimidium.DsUFupIY_1y4nUm.webp 828w, /_astro/Dimidium.DsUFupIY_ZwijTn.webp 1080w, /_astro/Dimidium.DsUFupIY_Z14WooQ.webp 1280w, /_astro/Dimidium.DsUFupIY_Z11f4Ss.webp 1668w, /_astro/Dimidium.DsUFupIY_Z27I9Uj.webp 1923w"></p>
+<h3 id="zsh">ZSH</h3>
+<p>Para ZSH (intérprete de comandos) encontré 2 temas a mi gusto y que iba a la par del diseño de esta configuración:</p>
+<ul>
+<li><strong>Tema: <code>nicoulaj</code></strong></li>
+<li><strong>Tema: <code>sunrise</code></strong></li>
+</ul>
+<p>En mi caso, opté por usar el tema Nicoulaj.</p>
+<p><img alt="nicoulaj" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 978px) 978px, 100vw"  data-astro-image="constrained" width="978" height="540" src="/_astro/nicoulaj.B--fDk4e_ZKoBis.webp" srcset="/_astro/nicoulaj.B--fDk4e_Z1HdXze.webp 640w, /_astro/nicoulaj.B--fDk4e_Zu5rcl.webp 750w, /_astro/nicoulaj.B--fDk4e_Z2oh6bQ.webp 828w, /_astro/nicoulaj.B--fDk4e_ZKoBis.webp 978w"></p>
+<p>Para entrar al menú de temas usa <code>Super + Shift + O</code>, escribe el nombre del tema y dale a Enter. Si quieres ver todos los temas disponibles entra a <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes">Repositorio oficial de ZSH</a>.</p>
+<ul>
+<li><strong>Tema: <code>sunrise</code></strong></li>
+</ul>
+<p><img alt="Sunrise" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 916px) 916px, 100vw"  data-astro-image="constrained" width="916" height="563" src="/_astro/sunrise.CoAREgA5_2ws7Hq.webp" srcset="/_astro/sunrise.CoAREgA5_Z2vCVBg.webp 640w, /_astro/sunrise.CoAREgA5_Z4C0Lm.webp 750w, /_astro/sunrise.CoAREgA5_2tYOPm.webp 828w, /_astro/sunrise.CoAREgA5_2ws7Hq.webp 916w"></p>
+<h2 id="fastfetch">Fastfetch</h2>
+<p>Aquí quería lograr que al iniciar mi terminal se pudiera ver un .txt que contenga una figura ASCII o en mi caso una imagen → ASCII de mis gatos.</p>
+<p>Para convertir mis imágenes usé esta página <a href="https://www.ascii-art-generator.org/">Crear ASCII</a> dando un <strong>ancho de 400</strong> para que se viera con más detalle. Tuve un problema y es que al ser de un ancho (líneas) tan grande, el .txt que generaba no era adecuado para el archivo Compact ya que este abarca alrededor de 40 líneas. Por ello opté en tomar captura del ASCII dentro de la página, lo pasaba a Canva y removía el fondo. En caso de que no se pudiera remover el fondo, abría el .txt en mi editor de texto y le tomaba una captura (gracias al modo oscuro, lo que asimilaba los temas de mi terminal).</p>
+<p>Si quieres probar un ASCII pequeño que no necesite mucha resolución para que pueda caber en la terminal prueba el tamaño de ancho mínimo (40), este ancho sí te permite usar el .txt dentro del archivo Compact.</p>
+<h3 id="archivos-de-configuración-1">Archivos de Configuración</h3>
+<p>Dentro de Fastfetch solo modifiqué 2 archivos de configuración para adaptar la imagen del ASCII, colocar márgenes a mi gusto, posicionar mejor los colores, quitar información que no me interesa y por último mover el texto de información del archivo Compact para que se alineara mejor a la imagen.</p>
+<p><strong>Nota</strong>: Tanto si usas un .txt o una imagen, recomiendo subirla en la carpeta de fastfetch por futuros imprevistos.</p>
+<ul>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config.jsonc"><strong>config.jsonc</strong></a>: Cambiar posicionamiento de los colores. <code>/home/{user}/.config/fastfetch/config.jsonc</code></li>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config-compact.jsonc"><strong>config-compact.jsonc</strong></a>: Adaptar Img. <code>/home/{user}/.config/fastfetch/config-compact.jsonc</code></li>
+</ul>
+<p><img alt="Fastfetch" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 999px) 999px, 100vw"  data-astro-image="constrained" width="999" height="947" src="/_astro/Fastfetch.BliiBzVa_Z2aPHGF.webp" srcset="/_astro/Fastfetch.BliiBzVa_22L4Su.webp 640w, /_astro/Fastfetch.BliiBzVa_ZGo3EK.webp 750w, /_astro/Fastfetch.BliiBzVa_Z25belv.webp 828w, /_astro/Fastfetch.BliiBzVa_Z2aPHGF.webp 999w"></p>
+<h2 id="administrador-de-archivos">Administrador de Archivos</h2>
+<p>Hyprland trae Thunar por defecto como administrador de archivos, en mi caso como había usado Nautilus en GNOME por ya un rato, me gustó más y decidí cambiarlo.</p>
+<p>Para ello hay que ir al archivo de configuración de usuario: <code>/home/{user}/.config/hypr/UserConfigs/01-UserDefaults.conf</code> y cambiar la siguiente línea:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#C5E478">$files</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> = nautilus </span><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># File Manager</span></span></code></pre>
+<p><img alt="nautilius" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/nautilius.X4LQtvKB_1QlGEW.webp" srcset="/_astro/nautilius.X4LQtvKB_Z26semQ.webp 640w, /_astro/nautilius.X4LQtvKB_1DYiAT.webp 750w, /_astro/nautilius.X4LQtvKB_eYHeS.webp 828w, /_astro/nautilius.X4LQtvKB_1xoFDy.webp 1080w, /_astro/nautilius.X4LQtvKB_Zix1O9.webp 1280w, /_astro/nautilius.X4LQtvKB_2mg5FO.webp 1668w, /_astro/nautilius.X4LQtvKB_1QlGEW.webp 1920w"></p>
+<h2 id="hyprlock">Hyprlock</h2>
+<p>En Hyprlock hice un cambio queriendo lograr un estilo similar a <a href="https://github.com/FireDrop6000/hyprland-mydots">FireDrop6000 Hyprlock</a> pero que sea <strong>compatible</strong> con mi configuración. Dejé solo lo esencial: fecha, hora, usuario, contraseña, batería y por último lo que estoy escuchando. Aquí tuve que agregar un script para que pudiera detectarlo estando en la pantalla de bloqueo.</p>
+<h3 id="archivos-de-configuración-2">Archivos de configuración</h3>
+<ul>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/music_status.sh"><strong>music_status.sh</strong></a>: Agregar este script a <code>/home/{user}/.config/hypr/scripts</code>.</li>
+<li><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/hyprlock.conf"><strong>hyprlock.conf</strong></a>: Modifiqué el que venía por defecto y agregué el script para que detectara lo que se esté escuchando. <code>/home/{user}/.config/hypr/hyprlock.conf</code></li>
+</ul>
+<p><img alt="wal1" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/wal1.DYTN0CtC_8oa0E.webp" srcset="/_astro/wal1.DYTN0CtC_Hpxup.webp 640w, /_astro/wal1.DYTN0CtC_Z1E5zvJ.webp 750w, /_astro/wal1.DYTN0CtC_ZP8Baj.webp 828w, /_astro/wal1.DYTN0CtC_EJtl7.webp 1080w, /_astro/wal1.DYTN0CtC_1DTXhG.webp 1280w, /_astro/wal1.DYTN0CtC_Z1IVHT6.webp 1668w, /_astro/wal1.DYTN0CtC_8oa0E.webp 1920w">
+<img alt="wal2" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/wal2.Ctd7tcXp_1CFFf5.webp" srcset="/_astro/wal2.Ctd7tcXp_ZdFatW.webp 640w, /_astro/wal2.Ctd7tcXp_2u0PiP.webp 750w, /_astro/wal2.Ctd7tcXp_Z1Lek9F.webp 828w, /_astro/wal2.Ctd7tcXp_2a1Yzx.webp 1080w, /_astro/wal2.Ctd7tcXp_Z1UYEhO.webp 1280w, /_astro/wal2.Ctd7tcXp_ZeEcEF.webp 1668w, /_astro/wal2.Ctd7tcXp_1CFFf5.webp 1920w">
+<img alt="wal3" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1920px) 1920px, 100vw"  data-astro-image="constrained" width="1920" height="1080" src="/_astro/wal3.Cc6Lul6v_Z1IpNjy.webp" srcset="/_astro/wal3.Cc6Lul6v_jIMIf.webp 640w, /_astro/wal3.Cc6Lul6v_Z22LkhT.webp 750w, /_astro/wal3.Cc6Lul6v_Z1dOlVt.webp 828w, /_astro/wal3.Cc6Lul6v_Z1c4tY6.webp 1080w, /_astro/wal3.Cc6Lul6v_ZcT02w.webp 1280w, /_astro/wal3.Cc6Lul6v_1tqrzC.webp 1668w, /_astro/wal3.Cc6Lul6v_Z1IpNjy.webp 1920w"></p>
+<h2 id="keybinds">KeyBinds</h2>
+<p>En mis KeyBinds solo modifiqué 3, conforme vaya usando más cada día lo iré cambiando a mis necesidades pero por ahora estoy bien con estos cambios mínimos.</p>
+<ul>
+<li>Abrir lanzador de aplicaciones: <code>Super</code></li>
+<li>Bloqueo de pantalla: <code>Super + L</code></li>
+<li>Abrir clipboard: <code>Super + V</code></li>
+</ul>
+<p><a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/keybinds/keybinds~">Archivo de configuración</a>: <code>/home/{user}/.config/hypr/configs/Keybinds.conf</code></p>
+<h2 id="fondos-de-pantalla">Fondos de Pantalla</h2>
+<p>Por último aquí te dejo todos los wallpapers que he usado en esta configuración, si quieres revisar más puedes usar <code>Super + W</code> para entrar a Hyprpaper y seleccionar el que te guste.</p>
+<p>Usa <code>Super + Alt + O</code> para darle transparencia a las ventanas.</p>
+<ul>
+<li>Pantalla Inicio: <a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/Fog-Forest-Everforest.png">Fog-Forest-Everforest</a></li>
+<li>Pantalla Inicio: <a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/Mountain.png">Mountain</a></li>
+<li>Pantalla de Bloqueo: <a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal.png">wal</a></li>
+<li>Pantalla de Bloqueo: <a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal2.jpg">wal2</a></li>
+<li>Pantalla de Bloqueo: <a href="https://github.com/eduardomv2/mi-config-hyprland/blob/main/wallpapers/wal3.jpg">wal3</a></li>
+</ul>
+<p>Espero y te sirva esta configuración, estaré publicando más sobre ello en futuros posts. ^^</p> </article> <hr class="my-8 border-dashed"> <a href="https://github.com/eduardomv2/blog/edit/main/src/data/blog/_2026/_Enero/TI/fedora_hyprland.md" target="_blank" rel="noopener noreferrer" class="flex justify-baseline gap-1.5 opacity-80 hover:text-accent sm:hidden"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span>Proponer Cambios</span></a> <ul class="mt-4 mb-8 sm:my-8"> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/linux/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm" data-astro-transition-scope="astro-36ssibgs-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>linux</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/hyprland/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm" data-astro-transition-scope="astro-36ssibgs-3"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>hyprland</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/fedora/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm" data-astro-transition-scope="astro-36ssibgs-4"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>fedora</span> </a> </li> </ul> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+regresar arriba
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="italic">Compartir publicación en:</span><div class="text-center"><a href="https://wa.me/?text=https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg><span class="sr-only">Share this post via WhatsApp</span></a><a href="https://www.facebook.com/sharer.php?u=https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg><span class="sr-only">Share this post on Facebook</span></a><a href="https://x.com/intent/post?url=https://www.eduardomv.xyz/posts/ti/configuracion-linux-fedora-hyprland/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg><span class="sr-only">Share this post on X</span></a></div></div> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">   </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/eduardomv2" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="eduardomv.xyz on GitHub"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only">eduardomv.xyz on GitHub</span> </a><a href="https://x.com/Eduardo78508260" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="eduardomv.xyz on X"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">eduardomv.xyz on X</span> </a><a href="https://www.linkedin.com/in/eduardoalejandromv/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="eduardomv.xyz on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">eduardomv.xyz on LinkedIn</span> </a><a href="mailto:eduardoalejandro.v.mtz@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to eduardomv.xyz"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to eduardomv.xyz</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>Todos los Derechos Reservados.</span> </div> </div> </footer>  <vercel-analytics data-props="{&#34;data-astro-cid-sckkx6r4&#34;:true}" data-params="{&#34;slug&#34;:&#34;ti/configuracion-linux-fedora-hyprland&#34;}" data-pathname="/posts/ti/configuracion-linux-fedora-hyprland/"></vercel-analytics> <script type="module">var f="@vercel/analytics",l="1.6.1",w=()=>{window.va||(window.va=function(...r){(window.vaq=window.vaq||[]).push(r)})};function d(){return typeof window<"u"}function u(){try{const e="production"}catch{}return"production"}function v(e="auto"){if(e==="auto"){window.vam=u();return}window.vam=e}function m(){return(d()?window.vam:u())||"production"}function c(){return m()==="development"}function b(e,r){if(!e||!r)return e;let n=e;try{const t=Object.entries(r);for(const[a,i]of t)if(!Array.isArray(i)){const o=s(i);o.test(n)&&(n=n.replace(o,`/[${a}]`))}for(const[a,i]of t)if(Array.isArray(i)){const o=s(i.join("/"));o.test(n)&&(n=n.replace(o,`/[...${a}]`))}return n}catch{return e}}function s(e){return new RegExp(`/${h(e)}(?=[/?#]|$)`)}function h(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}function y(e){return e.scriptSrc?e.scriptSrc:c()?"https://va.vercel-scripts.com/v1/script.debug.js":e.basePath?`${e.basePath}/insights/script.js`:"/_vercel/insights/script.js"}function g(e={debug:!0}){var r;if(!d())return;v(e.mode),w(),e.beforeSend&&((r=window.va)==null||r.call(window,"beforeSend",e.beforeSend));const n=y(e);if(document.head.querySelector(`script[src*="${n}"]`))return;const t=document.createElement("script");t.src=n,t.defer=!0,t.dataset.sdkn=f+(e.framework?`/${e.framework}`:""),t.dataset.sdkv=l,e.disableAutoTrack&&(t.dataset.disableAutoTrack="1"),e.endpoint?t.dataset.endpoint=e.endpoint:e.basePath&&(t.dataset.endpoint=`${e.basePath}/insights`),e.dsn&&(t.dataset.dsn=e.dsn),t.onerror=()=>{const a=c()?"Please check if any ad blockers are enabled and try again.":"Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/analytics/quickstart for more information.";console.log(`[Vercel Web Analytics] Failed to load script from ${n}. ${a}`)},c()&&e.debug===!1&&(t.dataset.debug="false"),document.head.appendChild(t)}function p({route:e,path:r}){var n;(n=window.va)==null||n.call(window,"pageview",{route:e,path:r})}function k(){try{return}catch{}}customElements.define("vercel-analytics",class extends HTMLElement{constructor(){super();try{const r=JSON.parse(this.dataset.props??"{}"),n=JSON.parse(this.dataset.params??"{}");g({...r,disableAutoTrack:!0,framework:"astro",basePath:k(),beforeSend:window.webAnalyticsBeforeSend});const t=this.dataset.pathname;p({route:b(t??"",n),path:t})}catch(r){throw new Error(`Failed to parse WebAnalytics properties: ${r}`)}}});</script> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>

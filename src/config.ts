@@ -12,7 +12,7 @@ export const SITE = {
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {
-    enabled: true,
+    enabled: false,
     text: "Proponer Cambios",
     url: "https://github.com/eduardomv2/blog/edit/main/",
   },
