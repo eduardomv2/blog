@@ -59,14 +59,8 @@ export const SHARE_LINKS: Social[] = [
   },
   {
     name: "X",
-    href: "https://x.com/intent/post?url=",
+    href: "https://twitter.com/intent/tweet?url=",
     linkTitle: `Share this post on X`,
     icon: IconBrandX,
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/create/",
-    linkTitle: `Share this post on Instagram`,
-    icon: IconInstagram,
   },
 ] as const;
