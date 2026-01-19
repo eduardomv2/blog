@@ -1,0 +1,58 @@
+<div class="giscus"></div>
+
+<script is:inline>
+  function getTheme() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    return theme === "dark" ? "noborder_dark" : "light";
+  }
+
+  // 2. Configuración inicial
+  const giscusAttributes = {
+    "src": "https://giscus.app/client.js",
+    "data-repo": "eduardomv2/blog",
+    "data-repo-id": "R_kgDOQj1ImA",
+    "data-category": "General",
+    "data-category-id": "DIC_kwDOQj1ImM4C1Kai",
+    "data-mapping": "pathname",
+    "data-strict": "0",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-theme": getTheme(), 
+    "data-lang": "es",
+    "crossorigin": "anonymous",
+    "async": "",
+  };
+
+  // Inserción del script
+  const giscusContainer = document.querySelector(".giscus");
+  // Limpiamos por si acaso hubo inyecciones previas al navegar (hot reload)
+  giscusContainer.innerHTML = ""; 
+  
+  const script = document.createElement("script");
+  Object.entries(giscusAttributes).forEach(([key, value]) => {
+    script.setAttribute(key, value);
+  });
+  giscusContainer.appendChild(script);
+
+  // tiempo real
+  function updateGiscusTheme() {
+    const theme = getTheme();
+    const iframe = document.querySelector('iframe.giscus-frame');
+    
+    if (!iframe) return;
+
+    // Mensaje a Giscus para cambiar el tema
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: theme } } },
+      'https://giscus.app'
+    );
+  }
+
+  // ver atributo 'data-theme'
+  const observer = new MutationObserver(updateGiscusTheme);
+  observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['data-theme'] 
+  });
+</script>
