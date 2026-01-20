@@ -9,7 +9,7 @@ tags:
   - linux
   - hyprland
   - fedora
-ogImage: src/assets/images/fedora_hyprland.png
+ogImage: src/assets/images/ogImage/fedora_hyprland.png
 
 description: Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más.
 ---
@@ -59,15 +59,15 @@ Aquí solamente modifiqué un poco los archivos de configuración para quitar in
 - [**Hyprsunset.sh**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/Hyprsunset.sh): Modificar el script Hyprsunset ya que estaba mal optimizado y al volver al modo normal tardaba en cambiar. `/home/{user}/.config/hypr/scripts/Hyprsunset.sh`
 - [**ModulesCustom**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/waybar/ModulesCustom): Modificar el bloque de hyprsunset para que funcione de acuerdo al cambio en el script. `/home/{user}/.config/waybar/ModulesCustom`
 
-![Configuración de Waybar](@/assets/images/waybar.png)
+![Configuración de Waybar](@/assets/images/2026/Enero/TI/fedora_hyprland/waybar.png)
 
 Otros temas que me gustaron:
 
 **[TOP] Default Laptop (Old v1)**
-![Waybar Old v1](@/assets/images/waybarv1.png)
+![Waybar Old v1](@/assets/images/2026/Enero/TI/fedora_hyprland/waybarv1.png)
 
 **[TOP] Default Laptop (Old v3)**
-![Waybar Old v3](@/assets/images/waybarv3.png)
+![Waybar Old v3](@/assets/images/2026/Enero/TI/fedora_hyprland/waybarv3.png)
 
 ## Rofi
 
@@ -75,17 +75,17 @@ Para el lanzador de aplicaciones uso Rofi que viene por defecto con Hyprland.
 
 - **Tema**: `saint-rofi`
 
-![Tema Rofi Saint](@/assets/images/rofi.png)
+![Tema Rofi Saint](@/assets/images/2026/Enero/TI/fedora_hyprland/rofi.png)
 
 Aquí no hice modificaciones, el tema está como me gustaba. Usar `Super + Ctrl + R` para cambiar entre temas.
 
 Otros temas que me gustaron:
 
 * **Tema:** `KooL_style-5`
-    ![Rofi Style 5](@/assets/images/KooL_style-5.png)
+    ![Rofi Style 5](@/assets/images/2026/Enero/TI/fedora_hyprland/KooL_style-5.png)
 
 * **Tema:** `KooL_style-9`
-    ![Rofi Style 9](@/assets/images/KooL_style-9.png)
+    ![Rofi Style 9](@/assets/images/2026/Enero/TI/fedora_hyprland/KooL_style-9.png)
 
 ## Terminal
 
@@ -107,7 +107,7 @@ Tema que uso en Ghostty:
 
 - **Tema**: `Detuned`
 
-![Detuned](@/assets/images/Detuned.png)
+![Detuned](@/assets/images/2026/Enero/TI/fedora_hyprland/Detuned.png)
 
 Si sabes el nombre del tema puedes agregarlo dirigiéndote al archivo de configuración escribiendo en la terminal `ghostty +edit-config` o ir directamente a la ruta `/home/{user}/.config/ghostty/config` y agregar la siguiente línea:
 
@@ -121,15 +121,15 @@ Otros temas que me gustaron:
 
 - **Tema: `Abernathy`**
 
-![Abernathy](@/assets/images/Abernathy.png)
+![Abernathy](@/assets/images/2026/Enero/TI/fedora_hyprland/Abernathy.png)
 
 - **Tema: `Black Metal (Marduk)`**
 
-![Black_Metal](@/assets/images/Black_Metal.png)
+![Black_Metal](@/assets/images/2026/Enero/TI/fedora_hyprland/Black_Metal.png)
 
 - **Tema: `Dimidium`**
 
-![Dimidium](@/assets/images/Dimidium.png)
+![Dimidium](@/assets/images/2026/Enero/TI/fedora_hyprland/Dimidium.png)
 
 ### ZSH
 
@@ -140,14 +140,14 @@ Para ZSH (intérprete de comandos) encontré 2 temas a mi gusto y que iba a la p
 
 En mi caso, opté por usar el tema Nicoulaj.
 
-![nicoulaj](@/assets/images/nicoulaj.png)
+![nicoulaj](@/assets/images/2026/Enero/TI/fedora_hyprland/nicoulaj.png)
 
 Para entrar al menú de temas usa `Super + Shift + O`, escribe el nombre del tema y dale a Enter. Si quieres ver todos los temas disponibles entra a [Repositorio oficial de ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/themes).
 
 
 - **Tema: `sunrise`**
 
-![Sunrise](@/assets/images/sunrise.png)
+![Sunrise](@/assets/images/2026/Enero/TI/fedora_hyprland/sunrise.png)
 
 ## Fastfetch
 
@@ -166,7 +166,7 @@ Dentro de Fastfetch solo modifiqué 2 archivos de configuración para adaptar la
 - [**config.jsonc**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config.jsonc): Cambiar posicionamiento de los colores. `/home/{user}/.config/fastfetch/config.jsonc`
 - [**config-compact.jsonc**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/terminal/config-compact.jsonc): Adaptar Img. `/home/{user}/.config/fastfetch/config-compact.jsonc`
 
-![Fastfetch](@/assets/images/Fastfetch.png)
+![Fastfetch](@/assets/images/2026/Enero/TI/fedora_hyprland/Fastfetch.png)
 
 ## Administrador de Archivos
 
@@ -178,7 +178,7 @@ Para ello hay que ir al archivo de configuración de usuario: `/home/{user}/.con
 $files = nautilus # File Manager
 ```
 
-![nautilius](@/assets/images/nautilius.png)
+![nautilius](@/assets/images/2026/Enero/TI/fedora_hyprland/nautilius.png)
 
 ## Hyprlock
 
@@ -189,9 +189,9 @@ En Hyprlock hice un cambio queriendo lograr un estilo similar a [FireDrop6000 Hy
 - [**music_status.sh**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/music_status.sh): Agregar este script a `/home/{user}/.config/hypr/scripts`.
 - [**hyprlock.conf**](https://github.com/eduardomv2/mi-config-hyprland/blob/main/hyprlock/hyprlock.conf): Modifiqué el que venía por defecto y agregué el script para que detectara lo que se esté escuchando. `/home/{user}/.config/hypr/hyprlock.conf`
 
-![wal1](@/assets/images/wal1.png)
-![wal2](@/assets/images/wal2.png)
-![wal3](@/assets/images/wal3.png)
+![wal1](@/assets/images/2026/Enero/TI/fedora_hyprland/wal1.png)
+![wal2](@/assets/images/2026/Enero/TI/fedora_hyprland/wal2.png)
+![wal3](@/assets/images/2026/Enero/TI/fedora_hyprland/wal3.png)
 
 ## KeyBinds
 
