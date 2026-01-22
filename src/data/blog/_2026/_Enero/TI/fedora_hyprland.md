@@ -11,7 +11,7 @@ tags:
   - fedora
 ogImage: src/assets/images/ogImage/fedora_hyprland.png
 
-description: Guía de mi configuración con Hyprland en Fedora 43, personalizaciones de terminal, waybar, rofi y más.
+description: Guía de mi configuración con Hyprland en Fedora 43, personalizacion de terminal, waybar, rofi y más.
 ---
 
 Hace unas semanas hice el cambio de Windows a Linux como mi actual sistema operativo, por ello he estado probando configuraciones, estilos y aplicaciones para adaptarlo a mis necesidades y gustos.
