@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Coverflow, { type ProjectItem } from "@/components/Coverflow.astro";
+import { SITE } from "@/config";
+
+const entries = await getCollection("proyectos", ({ data }) => !data.draft);
+
+const ordenados = entries.sort(
+  (a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf()
+);
+
+const proyectos: ProjectItem[] = await Promise.all(
+  ordenados.map(async entry => {
+    const { headings } = await render(entry);
+    return {
+      slug: entry.id,
+      data: entry.data,
+      pasos: headings.filter(h => h.depth === 2).map(h => h.text),
+    };
+  })
+);
+---
+
+<Layout
+  title={`Proyectos | ${SITE.title}`}
+  description="Portafolio de proyectos de machine learning, ciencia de datos y Python."
+>
+  <Header />
+  <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12">
+    <section class="pt-8 pb-6">
+      <h1 class="text-2xl font-bold text-accent sm:text-3xl">Proyectos</h1>
+      <p class="mt-3 max-w-2xl text-foreground/80">
+        Cada disco es un proyecto de datos: elige un álbum para filtrar por
+        categoría y abre su ficha para ver cómo está hecho.
+      </p>
+    </section>
+
+    {
+      proyectos.length > 0 ? (
+        <Coverflow proyectos={proyectos} />
+      ) : (
+        <p class="py-12 text-foreground/70">
+          Todavía no hay discos en la colección.
+        </p>
+      )
+    }
+  </main>
+  <Footer />
+</Layout>
