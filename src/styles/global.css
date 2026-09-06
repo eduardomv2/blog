@@ -36,6 +36,22 @@ html[data-theme="light"] {
   --muted: #e6e6e6;
   --border: #ADC4CE;
 
+  /* Portafolio: superficies y color por categoría (ver src/constants.ts) */
+  --panel: #ffffff;
+  --panel-2: #f1efea;
+  --ink-soft: #55534f;
+  --ink-muted: #7c7a75;
+  --vinyl: #15100f;
+
+  --c-riesgo: #b24436; --on-riesgo: #fbf8f3;
+  --c-nlp:    #a4700f; --on-nlp:    #fbf8f3;
+  --c-series: #2f6f63; --on-series: #fbf8f3;
+  --c-reco:   #006cac; --on-reco:   #fbf8f3;
+  --c-vision: #8e4368; --on-vision: #fbf8f3;
+  --c-all:    #282728; --on-all:    #fbf8f3;
+
+  --shadow-disc: 0 10px 22px rgb(40 39 40 / 0.18);
+  --shadow-disc-lg: 0 14px 30px rgb(40 39 40 / 0.24);
 }
 
 /* Default theme
@@ -84,6 +100,23 @@ html[data-theme="dark"] {
   --accent: #A64D79;
   --muted: #343f60;
   --border: #3B1C32;
+
+  /* Portafolio: mismos roles, pasos elegidos para el fondo oscuro */
+  --panel: #232328;
+  --panel-2: #2b2b31;
+  --ink-soft: #b9bcc4;
+  --ink-muted: #8a8d96;
+  --vinyl: #15100f;
+
+  --c-riesgo: #cc5f4e; --on-riesgo: #1a1a1d;
+  --c-nlp:    #d0952f; --on-nlp:    #1a1a1d;
+  --c-series: #3e9384; --on-series: #1a1a1d;
+  --c-reco:   #4c8fc4; --on-reco:   #1a1a1d;
+  --c-vision: #a64d79; --on-vision: #f6eef2;
+  --c-all:    #eaedf3; --on-all:    #1a1a1d;
+
+  --shadow-disc: 0 10px 22px rgb(0 0 0 / 0.5);
+  --shadow-disc-lg: 0 14px 30px rgb(0 0 0 / 0.6);
 }
 
 @theme inline {

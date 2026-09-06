@@ -1,0 +1,945 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { PROJECT_CATEGORIES, categoryLabel } from "@/constants";
+
+export interface ProjectItem {
+  slug: string;
+  data: CollectionEntry<"proyectos">["data"];
+  /** Encabezados `##` del Markdown: son los pasos del pipeline (Lado A) */
+  pasos: string[];
+}
+
+export interface Props {
+  proyectos: ProjectItem[];
+}
+
+const { proyectos } = Astro.props;
+
+const conteo = (key: string) =>
+  proyectos.filter(p => p.data.categoria === key).length;
+
+const albumes = [
+  { key: "all", label: "Todos", total: proyectos.length },
+  ...PROJECT_CATEGORIES.map(c => ({
+    key: c.key,
+    label: c.label,
+    total: conteo(c.key),
+  })).filter(c => c.total > 0),
+];
+
+const anio = (d: Date) => new Date(d).getFullYear().toString();
+---
+
+<section class="portfolio" aria-labelledby="albumes-title">
+  <p class="eyebrow" id="albumes-title">Álbumes</p>
+
+  <div class="albums">
+    {
+      albumes.map(a => (
+        <button
+          class="album"
+          type="button"
+          data-album={a.key}
+          aria-pressed={a.key === "all" ? "true" : "false"}
+          style={`--label: var(--c-${a.key}); --on: var(--on-${a.key})`}
+        >
+          <span class="sleeve">
+            <span class="face" data-cat={a.key} />
+            <span class="disc" />
+            <span class="txt">
+              <span class="name">{a.label}</span>
+              <span class="cnt">
+                {a.total} disco{a.total === 1 ? "" : "s"}
+              </span>
+            </span>
+          </span>
+        </button>
+      ))
+    }
+  </div>
+
+  <p class="eyebrow" id="flow-count">{proyectos.length} discos en total</p>
+
+  <div class="flow-stage" id="flow" tabindex="0" aria-label="Discos del portafolio; usa las flechas para navegar">
+    <div class="flow-3d" id="flow-3d">
+      {
+        proyectos.map(p => (
+          <div
+            class="flow-rec"
+            data-slug={p.slug}
+            data-cat={p.data.categoria}
+            style={`--label: var(--c-${p.data.categoria}); --on: var(--on-${p.data.categoria})`}
+          >
+            <div class="disc" />
+            <div class="sleeve" data-cat={p.data.categoria}>
+              {p.data.cover && (
+                <Image
+                  src={p.data.cover}
+                  alt={`Portada de ${p.data.title}`}
+                  width={440}
+                  height={440}
+                  class="cover"
+                />
+              )}
+              <span class="no">{p.data.catalogo}</span>
+              <span class="title">{p.data.title}</span>
+            </div>
+            <div class="reflect" data-cat={p.data.categoria} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="caption">
+    <p class="now" id="flow-now"></p>
+    <div class="dots" id="flow-dots"></div>
+    <div class="nav-btns">
+      <button class="pill" id="flow-prev" aria-label="Disco anterior">‹</button>
+      <button class="pill" id="flow-next" aria-label="Disco siguiente">›</button>
+    </div>
+  </div>
+
+  <div class="fichas" id="fichas">
+    {
+      proyectos.map(p => (
+        <article class="ficha" data-ficha={p.slug} hidden>
+          <div class="ficha-grid">
+            <div>
+              <div class="ficha-head">
+                <span
+                  class="ficha-disc"
+                  style={`--label: var(--c-${p.data.categoria})`}
+                />
+                <span>
+                  <span class="ficha-no">
+                    {p.data.catalogo} · {categoryLabel(p.data.categoria)}
+                  </span>
+                  <span class="ficha-title">{p.data.title}</span>
+                </span>
+              </div>
+
+              <p class="ficha-desc">{p.data.description}</p>
+
+              <dl class="facts">
+                <div class="fact">
+                  <dt>Año</dt>
+                  <dd>{anio(p.data.pubDatetime)}</dd>
+                </div>
+                {p.data.ficha.duracion && (
+                  <div class="fact">
+                    <dt>Duración</dt>
+                    <dd>{p.data.ficha.duracion}</dd>
+                  </div>
+                )}
+                {p.data.ficha.datos && (
+                  <div class="fact">
+                    <dt>Datos</dt>
+                    <dd>{p.data.ficha.datos}</dd>
+                  </div>
+                )}
+                {p.data.ficha.rol && (
+                  <div class="fact">
+                    <dt>Rol</dt>
+                    <dd>{p.data.ficha.rol}</dd>
+                  </div>
+                )}
+              </dl>
+
+              {p.pasos.length > 0 && (
+                <div class="side">
+                  <h3>Lado A — el pipeline</h3>
+                  {p.pasos.map((paso, i) => (
+                    <div class="track">
+                      <span class="tnum">A{i + 1}</span>
+                      <span class="tname">{paso}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              {p.data.metricas.length > 0 && (
+                <div class="side">
+                  <h3>Lado B — resultados</h3>
+                  {p.data.metricas.map((m, i) => (
+                    <div class="track">
+                      <span class="tnum">B{i + 1}</span>
+                      <span>
+                        <span class="tname">{m.nombre}</span>
+                        <span class="tdetail">{m.valor}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {p.data.stack.length > 0 && (
+                <div class="side">
+                  <h3>Créditos — stack</h3>
+                  <div class="credits">
+                    {p.data.stack.map(s => (
+                      <span class="credit-tag">{s}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="action primary" href={`/proyectos/${p.slug}/`}>
+              Leer el pipeline completo →
+            </a>
+            {p.data.repo && (
+              <a class="action" href={p.data.repo} target="_blank" rel="noopener noreferrer">
+                Código en GitHub
+              </a>
+            )}
+            {p.data.demo && (
+              <a class="action" href={p.data.demo} target="_blank" rel="noopener noreferrer">
+                Probar el modelo
+              </a>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    --ease-out: cubic-bezier(0.22, 0.8, 0.2, 1);
+    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 0.75rem;
+  }
+
+  /* ===== álbumes (filtros) ===== */
+  .albums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem 2.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .album {
+    position: relative;
+    width: 112px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    text-align: start;
+    z-index: 0;
+    transition: transform 0.45s var(--ease-out);
+  }
+  .album:hover,
+  .album[aria-pressed="true"] {
+    z-index: 3;
+  }
+  .album:hover {
+    transform: translateY(-4px);
+  }
+  .album .sleeve {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 112px;
+    height: 112px;
+    padding: 0.55rem;
+    border-radius: 4px;
+    border: 1px solid rgb(0 0 0 / 0.18);
+    box-shadow: var(--shadow-disc);
+    color: var(--on);
+    transition: box-shadow 0.45s var(--ease-out);
+  }
+  .album .face {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    z-index: 1;
+    background: linear-gradient(160deg, var(--label), var(--label) 55%, rgb(0 0 0 / 0.42));
+  }
+  .album .face[data-cat="all"] {
+    background: linear-gradient(
+      135deg,
+      var(--c-riesgo) 0 20%,
+      var(--c-nlp) 20% 40%,
+      var(--c-series) 40% 60%,
+      var(--c-reco) 60% 80%,
+      var(--c-vision) 80%
+    );
+  }
+  .album .txt {
+    position: relative;
+    z-index: 2;
+    display: block;
+  }
+  .album .name {
+    display: block;
+    font-weight: 700;
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+  .album .cnt {
+    display: block;
+    font-size: 0.66rem;
+    opacity: 0.85;
+    margin-top: 0.1rem;
+  }
+  .album .disc {
+    position: absolute;
+    top: 6px;
+    inset-inline-end: 6px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 0;
+    background: repeating-radial-gradient(circle, var(--vinyl) 0 2px, #241d1b 2px 4px);
+    box-shadow: var(--shadow-disc);
+    transform: translateX(0) rotate(0deg);
+    transition: transform 0.6s var(--ease-out);
+  }
+  .album .disc::after {
+    content: "";
+    position: absolute;
+    inset: 38%;
+    border-radius: 50%;
+    background: var(--label);
+  }
+  .album:hover .disc {
+    transform: translateX(28px) rotate(90deg);
+  }
+  .album[aria-pressed="true"] .disc {
+    transform: translateX(36px) rotate(180deg);
+  }
+  .album[aria-pressed="true"] .sleeve {
+    box-shadow:
+      0 0 0 2.5px var(--color-accent),
+      var(--shadow-disc-lg);
+  }
+  .album[aria-pressed="true"] {
+    transform: translateY(-6px);
+  }
+
+  /* ===== coverflow ===== */
+  .flow-stage {
+    position: relative;
+    height: 380px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    border: 1px solid var(--color-border);
+    perspective: 1000px;
+    user-select: none;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+  .flow-stage.dragging {
+    cursor: grabbing;
+  }
+  .flow-3d {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition:
+      opacity 0.28s var(--ease-soft),
+      transform 0.28s var(--ease-soft);
+  }
+  .flow-stage.swapping .flow-3d {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  .flow-rec {
+    position: absolute;
+    inset-inline-start: 50%;
+    top: 50%;
+    width: 220px;
+    height: 220px;
+    margin: -125px 0 0 -110px;
+    border-radius: 4px;
+    cursor: pointer;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    transition:
+      transform 0.7s var(--ease-out),
+      opacity 0.5s var(--ease-soft),
+      filter 0.5s var(--ease-soft);
+  }
+  .flow-rec .sleeve {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgb(0 0 0 / 0.18);
+    box-shadow: var(--shadow-disc-lg);
+    color: var(--on);
+    background: linear-gradient(160deg, var(--label), var(--label) 55%, rgb(0 0 0 / 0.42));
+  }
+  .flow-rec .sleeve :global(.cover) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .flow-rec .no,
+  .flow-rec .title {
+    position: relative;
+    z-index: 2;
+    display: block;
+  }
+  .flow-rec .no {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+  }
+  .flow-rec .title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.15;
+    margin-top: 0.15rem;
+    text-wrap: balance;
+  }
+  .flow-rec:has(.cover) .no,
+  .flow-rec:has(.cover) .title {
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.6);
+  }
+  .flow-rec .disc {
+    position: absolute;
+    top: 8px;
+    inset-inline-start: 8px;
+    width: 204px;
+    height: 204px;
+    border-radius: 50%;
+    z-index: 1;
+    background: repeating-radial-gradient(circle, var(--vinyl) 0 3px, #241d1b 3px 6px);
+    box-shadow: var(--shadow-disc-lg);
+    transition: transform 0.8s var(--ease-out);
+  }
+  .flow-rec .disc::after {
+    content: "";
+    position: absolute;
+    inset: 38%;
+    border-radius: 50%;
+    background: var(--label);
+  }
+  .flow-rec.center .disc {
+    transform: translateX(58%);
+    animation: vinyl-spin 9s linear infinite 0.6s;
+  }
+  @keyframes vinyl-spin {
+    to {
+      transform: translateX(58%) rotate(360deg);
+    }
+  }
+  .flow-rec .reflect {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    height: 100%;
+    border-radius: 4px;
+    opacity: 0.14;
+    pointer-events: none;
+    transform: scaleY(-1);
+    background: linear-gradient(160deg, var(--label), var(--label) 55%, rgb(0 0 0 / 0.42));
+    mask-image: linear-gradient(to bottom, transparent 30%, #000);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000);
+  }
+  .flow-rec .sleeve::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 3;
+    text-align: center;
+    padding: 0.35rem 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background: rgb(21 16 15 / 0.62);
+    color: #f6f3ee;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-soft);
+  }
+  .flow-rec.center .sleeve::after {
+    content: "abrir ficha";
+  }
+  .flow-rec.center:hover .sleeve::after {
+    opacity: 1;
+  }
+  .flow-rec.center.opened .sleeve::after {
+    content: "cerrar ficha";
+  }
+
+  .caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.9rem;
+  }
+  .caption .now {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+  }
+  .caption .now :global(small) {
+    display: block;
+    font-weight: 400;
+    font-size: 0.74rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+  .dots {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .dots :global(span) {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition:
+      background 0.3s,
+      transform 0.3s var(--ease-out);
+  }
+  .dots :global(span.on) {
+    background: var(--color-accent);
+    transform: scale(1.35);
+  }
+  .nav-btns {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .pill {
+    font-weight: 600;
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.38rem 0.95rem;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s var(--ease-out);
+  }
+  .pill:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+
+  /* ===== ficha ===== */
+  .ficha {
+    margin-top: 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    animation: ficha-in 0.4s var(--ease-out);
+  }
+  @keyframes ficha-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+  .ficha-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+  }
+  .ficha-head {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .ficha-disc {
+    position: relative;
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, var(--vinyl) 0 3px, #241d1b 3px 6px);
+    box-shadow: var(--shadow-disc);
+    animation: vinyl-spin-plain 6s linear infinite;
+  }
+  .ficha-disc::after {
+    content: "";
+    position: absolute;
+    inset: 40%;
+    border-radius: 50%;
+    background: var(--label);
+  }
+  @keyframes vinyl-spin-plain {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .ficha-no {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+  .ficha-title {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.15;
+  }
+  .ficha-desc {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 1.25rem;
+    margin: 0.25rem 0 0.5rem;
+  }
+  .fact {
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.35rem;
+  }
+  .fact dt {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+  .fact dd {
+    margin: 0.1rem 0 0;
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+  .side h3 {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    margin: 1rem 0 0.45rem;
+  }
+  .track {
+    display: flex;
+    gap: 0.55rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--color-border);
+  }
+  .track:last-child {
+    border-bottom: none;
+  }
+  .tnum {
+    flex: none;
+    width: 1.6rem;
+    color: var(--ink-muted);
+  }
+  .tname {
+    font-weight: 600;
+  }
+  .tdetail {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+  }
+  .credits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+  }
+  .credit-tag {
+    font-size: 0.72rem;
+    background: var(--panel-2);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    color: var(--ink-soft);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px dashed var(--color-border);
+  }
+  .action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border: 1.5px solid var(--color-border);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: 0.38rem 0.9rem;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s var(--ease-out);
+  }
+  .action:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+  .action.primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--background);
+  }
+  .action.primary:hover {
+    opacity: 0.9;
+    color: var(--background);
+  }
+
+  @media (max-width: 640px) {
+    .ficha-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .flow-stage {
+      height: 320px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-rec,
+    .flow-3d,
+    .album,
+    .album .disc,
+    .flow-rec .disc,
+    .ficha,
+    .ficha-disc,
+    .pill,
+    .action {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initCoverflow() {
+    const stage = document.getElementById("flow");
+    const layer = document.getElementById("flow-3d");
+    if (!stage || !layer) return;
+
+    const recs = Array.from(
+      layer.querySelectorAll<HTMLElement>(".flow-rec")
+    );
+    const fichas = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-ficha]")
+    );
+    const nowEl = document.getElementById("flow-now");
+    const dotsEl = document.getElementById("flow-dots");
+    const countEl = document.getElementById("flow-count");
+    const albums = Array.from(
+      document.querySelectorAll<HTMLElement>(".album")
+    );
+
+    let cat = "all";
+    let idx = 0;
+    let openSlug: string | null = null;
+    let wheelLock = false;
+
+    const visible = () =>
+      recs.filter(r => cat === "all" || r.dataset.cat === cat);
+
+    function transform(d: number) {
+      if (d === 0) return "translateX(0) translateZ(70px) rotateY(0deg)";
+      const s = d < 0 ? -1 : 1;
+      const a = Math.abs(d);
+      return `translateX(${s * (165 + (a - 1) * 66)}px) translateZ(${-60 - a * 60}px) rotateY(${-s * 55}deg)`;
+    }
+
+    function render() {
+      const list = visible();
+      if (idx > list.length - 1) idx = Math.max(0, list.length - 1);
+
+      recs.forEach(rec => {
+        const i = list.indexOf(rec);
+        if (i === -1) {
+          rec.style.opacity = "0";
+          rec.style.pointerEvents = "none";
+          rec.classList.remove("center", "opened");
+          return;
+        }
+        const d = i - idx;
+        rec.classList.toggle("center", d === 0);
+        rec.classList.toggle(
+          "opened",
+          d === 0 && openSlug === rec.dataset.slug
+        );
+        rec.style.transform = transform(d);
+        rec.style.zIndex = String(100 - Math.abs(d));
+        rec.style.opacity = Math.abs(d) > 4 ? "0" : "1";
+        rec.style.filter =
+          d === 0 ? "brightness(1)" : `brightness(${0.9 - Math.abs(d) * 0.06})`;
+        rec.style.pointerEvents = Math.abs(d) > 4 ? "none" : "auto";
+      });
+
+      const current = list[idx];
+      if (nowEl && current) {
+        const ficha = fichas.find(f => f.dataset.ficha === current.dataset.slug);
+        const title = current.querySelector(".title")?.textContent ?? "";
+        const meta = ficha?.querySelector(".ficha-no")?.textContent ?? "";
+        nowEl.innerHTML = `${title}<small>${meta}</small>`;
+      }
+
+      if (dotsEl) {
+        dotsEl.innerHTML = "";
+        list.forEach((_, i) => {
+          const dot = document.createElement("span");
+          if (i === idx) dot.className = "on";
+          dotsEl.appendChild(dot);
+        });
+      }
+
+      if (countEl) {
+        const label =
+          cat === "all"
+            ? " en total"
+            : ` en ${albums.find(a => a.dataset.album === cat)?.querySelector(".name")?.textContent ?? ""}`;
+        countEl.textContent = `${list.length} disco${list.length === 1 ? "" : "s"}${label}`;
+      }
+
+      fichas.forEach(f => {
+        f.hidden = f.dataset.ficha !== openSlug;
+      });
+    }
+
+    function step(dir: number) {
+      const list = visible();
+      const next = Math.min(list.length - 1, Math.max(0, idx + dir));
+      if (next === idx) return;
+      idx = next;
+      openSlug = null;
+      render();
+    }
+
+    recs.forEach(rec => {
+      rec.addEventListener("click", () => {
+        const list = visible();
+        const i = list.indexOf(rec);
+        if (i === -1) return;
+        if (i === idx) {
+          openSlug = openSlug === rec.dataset.slug ? null : rec.dataset.slug!;
+        } else {
+          idx = i;
+          openSlug = null;
+        }
+        render();
+      });
+    });
+
+    albums.forEach(album => {
+      album.addEventListener("click", () => {
+        const key = album.dataset.album!;
+        if (key === cat) return;
+        cat = key;
+        idx = 0;
+        openSlug = null;
+        albums.forEach(a =>
+          a.setAttribute(
+            "aria-pressed",
+            a.dataset.album === key ? "true" : "false"
+          )
+        );
+        stage.classList.add("swapping");
+        window.setTimeout(() => {
+          render();
+          stage.classList.remove("swapping");
+        }, 280);
+      });
+    });
+
+    document.getElementById("flow-next")?.addEventListener("click", () => step(1));
+    document.getElementById("flow-prev")?.addEventListener("click", () => step(-1));
+
+    stage.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        step(1);
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        step(-1);
+      }
+    });
+
+    stage.addEventListener(
+      "wheel",
+      e => {
+        e.preventDefault();
+        if (wheelLock) return;
+        wheelLock = true;
+        window.setTimeout(() => (wheelLock = false), 420);
+        const delta =
+          Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        step(delta > 0 ? 1 : -1);
+      },
+      { passive: false }
+    );
+
+    // arrastrar / deslizar
+    let dragging = false;
+    let startX = 0;
+    let moved = 0;
+    stage.addEventListener("pointerdown", e => {
+      dragging = true;
+      startX = e.clientX;
+      moved = 0;
+      stage.classList.add("dragging");
+      layer.style.transition = "none";
+    });
+    window.addEventListener("pointermove", e => {
+      if (!dragging) return;
+      moved = e.clientX - startX;
+      layer.style.transform = `translateX(${moved * 0.35}px)`;
+    });
+    window.addEventListener("pointerup", () => {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove("dragging");
+      layer.style.transition = "";
+      layer.style.transform = "";
+      if (Math.abs(moved) > 50) step(moved < 0 ? 1 : -1);
+    });
+    stage.addEventListener(
+      "click",
+      e => {
+        if (Math.abs(moved) > 8) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      },
+      true
+    );
+
+    render();
+  }
+
+  document.addEventListener("astro:page-load", initCoverflow);
+</script>

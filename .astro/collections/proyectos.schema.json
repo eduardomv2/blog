@@ -1,0 +1,145 @@
+{
+  "$ref": "#/definitions/proyectos",
+  "definitions": {
+    "proyectos": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "catalogo": {
+          "type": "string"
+        },
+        "categoria": {
+          "type": "string",
+          "enum": [
+            "riesgo",
+            "nlp",
+            "series",
+            "reco",
+            "vision"
+          ]
+        },
+        "pubDatetime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "modDatetime": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "not": {}
+                },
+                {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    {
+                      "type": "integer",
+                      "format": "unix-time"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cover": {
+          "type": "string"
+        },
+        "stack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "metricas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "valor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "valor"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "ficha": {
+          "type": "object",
+          "properties": {
+            "duracion": {
+              "type": "string"
+            },
+            "datos": {
+              "type": "string"
+            },
+            "rol": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "repo": {
+          "type": "string"
+        },
+        "demo": {
+          "type": "string"
+        },
+        "destacado": {
+          "type": "boolean"
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "catalogo",
+        "categoria",
+        "pubDatetime"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

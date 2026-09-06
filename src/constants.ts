@@ -44,6 +44,30 @@ export const SOCIALS: Social[] = [
   },
 ] as const;
 
+/* ========== Categorías del portafolio ==========
+ * Para agregar una categoría nueva: añade una entrada aquí y define
+ * --c-<key> y --on-<key> en src/styles/global.css (light y dark).
+ */
+export interface ProjectCategory {
+  key: string;
+  label: string;
+}
+
+export const PROJECT_CATEGORIES = [
+  { key: "riesgo", label: "Riesgo / Fraude" },
+  { key: "nlp", label: "NLP" },
+  { key: "series", label: "Series de tiempo" },
+  { key: "reco", label: "Recomendación" },
+  { key: "vision", label: "Visión" },
+] as const satisfies readonly ProjectCategory[];
+
+export const CATEGORY_KEYS = PROJECT_CATEGORIES.map(
+  (c) => c.key,
+) as unknown as [string, ...string[]];
+
+export const categoryLabel = (key: string) =>
+  PROJECT_CATEGORIES.find((c) => c.key === key)?.label ?? key;
+
 export const SHARE_LINKS: Social[] = [
   {
     name: "WhatsApp",
