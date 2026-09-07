@@ -1,58 +1,74 @@
-<div class="giscus"></div>
+---
+export interface Props {
+  /** Categoría de GitHub Discussions donde se guardan los comentarios */
+  category?: string;
+  categoryId?: string;
+}
 
-<script is:inline>
-  function getTheme() {
+const {
+  category = "General",
+  categoryId = "DIC_kwDOQj1ImM4C1Kai",
+} = Astro.props;
+---
+
+<div class="giscus" data-category={category} data-category-id={categoryId}>
+</div>
+
+<script is:inline data-astro-rerun>
+  function getGiscusTheme() {
     const theme = document.documentElement.getAttribute("data-theme");
     return theme === "dark" ? "noborder_dark" : "light";
   }
 
-  // 2. Configuración inicial
-  const giscusAttributes = {
-    "src": "https://giscus.app/client.js",
-    "data-repo": "eduardomv2/blog",
-    "data-repo-id": "R_kgDOQj1ImA",
-    "data-category": "General",
-    "data-category-id": "DIC_kwDOQj1ImM4C1Kai",
-    "data-mapping": "pathname",
-    "data-strict": "0",
-    "data-reactions-enabled": "1",
-    "data-emit-metadata": "0",
-    "data-input-position": "bottom",
-    "data-theme": getTheme(), 
-    "data-lang": "es",
-    "crossorigin": "anonymous",
-    "async": "",
-  };
+  function mountGiscus() {
+    const container = document.querySelector(".giscus");
+    if (!container) return;
 
-  // Inserción del script
-  const giscusContainer = document.querySelector(".giscus");
-  // Limpiamos por si acaso hubo inyecciones previas al navegar (hot reload)
-  giscusContainer.innerHTML = ""; 
-  
-  const script = document.createElement("script");
-  Object.entries(giscusAttributes).forEach(([key, value]) => {
-    script.setAttribute(key, value);
-  });
-  giscusContainer.appendChild(script);
+    // Limpiamos por si hubo una inyección previa al navegar
+    container.innerHTML = "";
 
-  // tiempo real
+    const giscusAttributes = {
+      src: "https://giscus.app/client.js",
+      "data-repo": "eduardomv2/blog",
+      "data-repo-id": "R_kgDOQj1ImA",
+      "data-category": container.dataset.category || "General",
+      "data-category-id": container.dataset.categoryId || "DIC_kwDOQj1ImM4C1Kai",
+      "data-mapping": "pathname",
+      "data-strict": "0",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "bottom",
+      "data-theme": getGiscusTheme(),
+      "data-lang": "es",
+      crossorigin: "anonymous",
+      async: "",
+    };
+
+    const script = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => {
+      script.setAttribute(key, value);
+    });
+    container.appendChild(script);
+  }
+
   function updateGiscusTheme() {
-    const theme = getTheme();
-    const iframe = document.querySelector('iframe.giscus-frame');
-    
+    const iframe = document.querySelector("iframe.giscus-frame");
     if (!iframe) return;
 
-    // Mensaje a Giscus para cambiar el tema
     iframe.contentWindow.postMessage(
-      { giscus: { setConfig: { theme: theme } } },
-      'https://giscus.app'
+      { giscus: { setConfig: { theme: getGiscusTheme() } } },
+      "https://giscus.app"
     );
   }
 
-  // ver atributo 'data-theme'
-  const observer = new MutationObserver(updateGiscusTheme);
-  observer.observe(document.documentElement, { 
-    attributes: true, 
-    attributeFilter: ['data-theme'] 
-  });
+  // El observador del tema se registra una sola vez por sesión
+  if (!window.__giscusThemeObserver) {
+    window.__giscusThemeObserver = new MutationObserver(updateGiscusTheme);
+    window.__giscusThemeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }
+
+  mountGiscus();
 </script>

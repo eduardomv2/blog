@@ -1,7 +1,7 @@
 <!DOCTYPE html><html dir="ltr" lang="es" class="scroll-smooth" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://www.eduardomv.xyz/proyectos/pronostico-demanda/"><meta name="generator" content="Astro v5.16.8"><!-- General Meta Tags --><title>Pronóstico de demanda semanal por SKU | eduardomv.xyz</title><meta name="title" content="Pronóstico de demanda semanal por SKU | eduardomv.xyz"><meta name="description" content="Ensemble de Prophet y LightGBM para planear inventario de 1,200 SKU con tres años de historia."><meta name="author" content="Eduardo M.V."><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Pronóstico de demanda semanal por SKU | eduardomv.xyz"><meta property="og:description" content="Ensemble de Prophet y LightGBM para planear inventario de 1,200 SKU con tres años de historia."><meta property="og:url" content="https://www.eduardomv.xyz/proyectos/pronostico-demanda/"><meta property="og:image" content="https://www.eduardomv.xyz/minho.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2023-11-04T16:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://www.eduardomv.xyz/proyectos/pronostico-demanda/"><meta property="twitter:title" content="Pronóstico de demanda semanal por SKU | eduardomv.xyz"><meta property="twitter:description" content="Ensemble de Prophet y LightGBM para planear inventario de 1,200 SKU con tres años de historia."><meta property="twitter:image" content="https://www.eduardomv.xyz/minho.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Pronóstico de demanda semanal por SKU | eduardomv.xyz","image":"https://www.eduardomv.xyz/minho.jpg","datePublished":"2023-11-04T16:00:00.000Z","author":[{"@type":"Person","name":"Eduardo M.V."}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="eduardomv.xyz" href="https://www.eduardomv.xyz/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"><style>:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
 </style>
 <link rel="stylesheet" href="/_astro/index.DIiixkpz.css">
-<link rel="stylesheet" href="/_astro/_slug_.kFKuPZ0L.css"></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+<link rel="stylesheet" href="/_astro/_slug_.DWR26IYD.css"></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
 Ir al Contenido
 </a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> eduardomv.xyz </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Abrir Menú" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
 Publicaciones
@@ -126,7 +126,67 @@ registrados en MLflow, y salida a la tabla que consume el equipo de compras.</p>
 <h2 id="qué-aprendí">Qué aprendí</h2>
 <p>Que el 40% del error vivía en el 12% de los SKU de baja rotación, y que para
 esos el pronóstico puntual no sirve: lo útil ahí es un intervalo, no un número.
-La siguiente versión usa cuantiles (P10/P50/P90) para esa cola.</p>  <h2 id="resultados" data-astro-cid-rztq2yfn>Resultados</h2> <table data-astro-cid-rztq2yfn> <thead data-astro-cid-rztq2yfn> <tr data-astro-cid-rztq2yfn> <th data-astro-cid-rztq2yfn>Métrica</th> <th data-astro-cid-rztq2yfn>Valor</th> </tr> </thead> <tbody data-astro-cid-rztq2yfn> <tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>MAPE</td> <td data-astro-cid-rztq2yfn>6.2%</td> </tr><tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>RMSE</td> <td data-astro-cid-rztq2yfn>118</td> </tr><tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>SKUs</td> <td data-astro-cid-rztq2yfn>1,200+</td> </tr> </tbody> </table>  </article> </div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+La siguiente versión usa cuantiles (P10/P50/P90) para esa cola.</p>  <h2 id="resultados" data-astro-cid-rztq2yfn>Resultados</h2> <table data-astro-cid-rztq2yfn> <thead data-astro-cid-rztq2yfn> <tr data-astro-cid-rztq2yfn> <th data-astro-cid-rztq2yfn>Métrica</th> <th data-astro-cid-rztq2yfn>Valor</th> </tr> </thead> <tbody data-astro-cid-rztq2yfn> <tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>MAPE</td> <td data-astro-cid-rztq2yfn>6.2%</td> </tr><tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>RMSE</td> <td data-astro-cid-rztq2yfn>118</td> </tr><tr data-astro-cid-rztq2yfn> <td data-astro-cid-rztq2yfn>SKUs</td> <td data-astro-cid-rztq2yfn>1,200+</td> </tr> </tbody> </table>  </article> </div> <hr class="my-8 border-dashed" data-astro-cid-rztq2yfn> <section class="comentarios" data-pagefind-ignore data-astro-cid-rztq2yfn> <h2 class="comentarios-title" data-astro-cid-rztq2yfn>Comentarios</h2> <p class="comentarios-desc" data-astro-cid-rztq2yfn>
+¿Dudas sobre el pipeline o ideas para mejorarlo? Los comentarios usan
+        GitHub Discussions: necesitas una cuenta de GitHub para escribir.
+</p> <div class="giscus" data-category="General" data-category-id="DIC_kwDOQj1ImM4C1Kai"></div> <script data-astro-rerun>
+  function getGiscusTheme() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    return theme === "dark" ? "noborder_dark" : "light";
+  }
+
+  function mountGiscus() {
+    const container = document.querySelector(".giscus");
+    if (!container) return;
+
+    // Limpiamos por si hubo una inyección previa al navegar
+    container.innerHTML = "";
+
+    const giscusAttributes = {
+      src: "https://giscus.app/client.js",
+      "data-repo": "eduardomv2/blog",
+      "data-repo-id": "R_kgDOQj1ImA",
+      "data-category": container.dataset.category || "General",
+      "data-category-id": container.dataset.categoryId || "DIC_kwDOQj1ImM4C1Kai",
+      "data-mapping": "pathname",
+      "data-strict": "0",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "bottom",
+      "data-theme": getGiscusTheme(),
+      "data-lang": "es",
+      crossorigin: "anonymous",
+      async: "",
+    };
+
+    const script = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => {
+      script.setAttribute(key, value);
+    });
+    container.appendChild(script);
+  }
+
+  function updateGiscusTheme() {
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (!iframe) return;
+
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: getGiscusTheme() } } },
+      "https://giscus.app"
+    );
+  }
+
+  // El observador del tema se registra una sola vez por sesión
+  if (!window.__giscusThemeObserver) {
+    window.__giscusThemeObserver = new MutationObserver(updateGiscusTheme);
+    window.__giscusThemeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }
+
+  mountGiscus();
+</script> </section> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
 regresar arriba
 </span> </button> </div> <script data-astro-rerun>
   /** Scrolls the document to the top when
