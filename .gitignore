@@ -1,1 +1,5 @@
 node_modules/
+
+# Lienzos de diseño ya ensamblados (se regeneran desde los .dc.html)
+.design/*.html
+!.design/*.dc.html

@@ -1,0 +1,59 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Opción A — Tocadiscos",
+      "x": 0,
+      "y": 0,
+      "w": 1200,
+      "h": 1420
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "Opción B — Ficha técnica",
+      "x": 1320,
+      "y": 0,
+      "w": 1200,
+      "h": 1120
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "Opción C — Consola",
+      "x": 2640,
+      "y": 0,
+      "w": 1200,
+      "h": 1280
+    }
+  ],
+  "annotations": [
+    {
+      "id": "nota-a",
+      "x": 0,
+      "y": -150,
+      "w": 420,
+      "text": "A — Tocadiscos\nSigue el lenguaje de vinilos del portafolio: tu foto va en la etiqueta del disco (gira lento), la última publicación es \"ahora sonando\" y los proyectos son fundas.\nA favor: memorable, coherente con /proyectos.\nEn contra: la metáfora puede leerse menos formal para un reclutador."
+    },
+    {
+      "id": "nota-b",
+      "x": 1320,
+      "y": -150,
+      "w": 420,
+      "text": "B — Ficha técnica\nColumna fija con foto, contacto, CV y estado; a la derecha bio, cifras, proyectos y última publicación.\nA favor: es lo que un reclutador escanea en 10 segundos; escala sin rediseño.\nEn contra: es la más quieta de las tres — vive de la tipografía, no del movimiento."
+    },
+    {
+      "id": "nota-c",
+      "x": 2640,
+      "y": -150,
+      "w": 420,
+      "text": "C — Consola\nLa portada es una terminal: whoami, ls contacto/, posts --last 1. Cursor parpadeando, salida en tarjetas.\nA favor: la más viva y con más personalidad técnica.\nEn contra: empuja foto y CV a un segundo plano, y el chiste envejece si lo ves a diario."
+    },
+    {
+      "id": "nota-datos",
+      "x": 0,
+      "y": 1470,
+      "w": 900,
+      "text": "Datos reales del sitio (publicación de Hyprland + Fedora, proyectos ST-03 / RG-01 / NLP-02 con sus métricas). Lo que falta es tuyo: la foto, el PDF del CV y los enlaces de Kaggle y Tableau — van marcados como [TU ...]. Las cifras de la Opción B (8 proyectos, 14 publicaciones) son de ejemplo."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

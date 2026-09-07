@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    a { color: #006cac; text-decoration: none; }
+    a:hover { color: #00507f; }
+    @keyframes parpadeo { 0%, 45% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #F9F8F6; color: #282728;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 24px 88px; border-bottom: 1px solid #ADC4CE;">
+    <div style="font-size: 20px; font-weight: 600;">eduardomv.xyz</div>
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 14px; color: #55534F;">
+      <div>Publicaciones</div>
+      <div>Tags</div>
+      <div>Proyectos</div>
+      <div style="width: 1px; height: 16px; background: #ADC4CE;"></div>
+      <div style="width: 18px; height: 18px; border: 1.5px solid #55534F; border-radius: 3px;"></div>
+      <div style="width: 18px; height: 18px; border: 1.5px solid #55534F; border-radius: 50%;"></div>
+    </div>
+  </div>
+
+  <!-- terminal -->
+  <div style="padding: 48px 88px 0;">
+    <div style="border: 1px solid #ADC4CE; border-radius: 10px; overflow: hidden; background: #1A1A1D; box-shadow: 0 16px 34px rgba(40,39,40,0.22);">
+
+      <div style="display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232328; border-bottom: 1px solid #33333a;">
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #B24436;"></div>
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #A4700F;"></div>
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #2F6F63;"></div>
+        <div style="flex-grow: 1; text-align: center; font-size: 12px; color: #8A8D96;">eduardomv@portafolio: ~</div>
+      </div>
+
+      <div style="display: flex; gap: 32px; padding: 26px 30px 30px; align-items: flex-start;">
+        <div style="flex-grow: 1;">
+          <div style="font-size: 14px; color: #8A8D96;"><span style="color: #3E9384;">➜</span> <span style="color: #4C8FC4;">~</span> whoami</div>
+          <div style="font-size: 30px; font-weight: 700; color: #eaedf3; margin-top: 12px; line-height: 1.2;">Eduardo Martínez Vidal</div>
+          <div style="font-size: 15px; color: #B9BCC4; margin-top: 10px; line-height: 1.6; max-width: 54ch;">
+            Ing. en Informática · ciencia de datos. Pipelines de punta a punta,
+            servidores que se rompen a las 3 a.m. y notas de todo lo aprendido.
+          </div>
+
+          <div style="font-size: 14px; color: #8A8D96; margin-top: 22px;"><span style="color: #3E9384;">➜</span> <span style="color: #4C8FC4;">~</span> ls contacto/</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;">
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">cv.pdf</div>
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">correo</div>
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">github</div>
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">linkedin</div>
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">kaggle</div>
+            <div style="border: 1px solid #3B3B42; color: #eaedf3; border-radius: 6px; padding: 8px 14px; font-size: 13px;">tableau</div>
+          </div>
+
+          <div style="font-size: 14px; color: #8A8D96; margin-top: 22px;">
+            <span style="color: #3E9384;">➜</span> <span style="color: #4C8FC4;">~</span> <span style="color: #eaedf3;">posts --last 1</span><span style="display: inline-block; width: 9px; height: 16px; background: #eaedf3; margin-left: 4px; vertical-align: -3px; animation: parpadeo 1.1s steps(1) infinite;"></span>
+          </div>
+        </div>
+
+        <div style="width: 200px; flex-grow: 0;">
+          <div style="width: 200px; height: 200px; border-radius: 6px; border: 1px solid #3B3B42; background: #2B2B31; display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 12px; color: #8A8D96; text-align: center; line-height: 1.5;">TU FOTO<br>(retrato)</div>
+          </div>
+          <div style="font-size: 11px; color: #8A8D96; margin-top: 8px; text-align: center;">~/perfil/foto.jpg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- salida: post -->
+  <div style="padding: 26px 88px 0;">
+    <div style="border: 1px solid #ADC4CE; border-radius: 10px; background: #FFFFFF; padding: 22px 26px;">
+      <div style="font-size: 12px; color: #7C7A75;">out · 11 ene 2026 · linux · hyprland · fedora</div>
+      <div style="font-size: 20px; font-weight: 700; margin-top: 5px;">Mi configuración de Linux usando Hyprland + Fedora</div>
+      <div style="font-size: 14px; color: #55534F; margin-top: 6px; line-height: 1.55; max-width: 72ch;">Guía de mi configuración con Hyprland en Fedora 43: personalización de terminal, waybar, rofi y más.</div>
+    </div>
+  </div>
+
+  <!-- salida: proyectos -->
+  <div style="padding: 26px 88px 56px;">
+    <div style="font-size: 14px; color: #55534F; margin-bottom: 14px;"><span style="color: #2F6F63;">➜</span> <span style="color: #006cac;">~</span> proyectos --destacados</div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+      <div style="border: 1px solid #ADC4CE; border-left: 4px solid #2F6F63; border-radius: 8px; background: #FFFFFF; padding: 18px 20px;">
+        <div style="font-size: 11px; color: #7C7A75; letter-spacing: 0.05em;">ST-03</div>
+        <div style="font-size: 16px; font-weight: 700; margin-top: 3px; line-height: 1.2;">Pronóstico de demanda</div>
+        <div style="font-size: 13px; color: #55534F; margin-top: 8px; line-height: 1.5;">Prophet + LightGBM, 1,200 SKU.</div>
+        <div style="font-size: 13px; color: #006cac; margin-top: 12px;">MAPE 6.2% · MLflow</div>
+      </div>
+      <div style="border: 1px solid #ADC4CE; border-left: 4px solid #B24436; border-radius: 8px; background: #FFFFFF; padding: 18px 20px;">
+        <div style="font-size: 11px; color: #7C7A75; letter-spacing: 0.05em;">RG-01</div>
+        <div style="font-size: 16px; font-weight: 700; margin-top: 3px; line-height: 1.2;">Fraude en pagos</div>
+        <div style="font-size: 13px; color: #55534F; margin-top: 8px; line-height: 1.5;">XGBoost + SMOTE, 284,807 filas.</div>
+        <div style="font-size: 13px; color: #006cac; margin-top: 12px;">AUC 0.94 · FastAPI</div>
+      </div>
+      <div style="border: 1px solid #ADC4CE; border-left: 4px solid #A4700F; border-radius: 8px; background: #FFFFFF; padding: 18px 20px;">
+        <div style="font-size: 11px; color: #7C7A75; letter-spacing: 0.05em;">NLP-02</div>
+        <div style="font-size: 16px; font-weight: 700; margin-top: 3px; line-height: 1.2;">Sentimiento en reseñas</div>
+        <div style="font-size: 13px; color: #55534F; margin-top: 8px; line-height: 1.5;">DistilBERT, 50k reseñas ES/EN.</div>
+        <div style="font-size: 13px; color: #006cac; margin-top: 12px;">F1 0.89 · PyTorch</div>
+      </div>
+    </div>
+
+    <div style="font-size: 14px; color: #55534F; margin-top: 24px;"><span style="color: #2F6F63;">➜</span> <span style="color: #006cac;">~</span> <span style="color: #282728;">contacto --abrir</span><span style="display: inline-block; width: 9px; height: 15px; background: #282728; margin-left: 4px; vertical-align: -2px; animation: parpadeo 1.1s steps(1) infinite;"></span></div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
