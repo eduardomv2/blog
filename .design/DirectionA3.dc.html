@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: "Spectral", Georgia, serif; }
+    a { color: #7FA8FF; text-decoration: none; }
+    a:hover { color: #a6c2ff; }
+    @keyframes girar-a3 { to { transform: rotate(360deg); } }
+    @keyframes pulso-a3 { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #14151F; color: #ECE9F5;">
+
+  <!-- header -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 84px; border-bottom: 1px solid #2E3145;">
+    <div style="font-size: 19px; font-weight: 600;">eduardomv.xyz</div>
+    <div style="display: flex; align-items: center; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B7B4C9;">
+      <div>Publicaciones</div>
+      <div>Tags</div>
+      <div>Proyectos</div>
+      <div style="width: 18px; height: 18px; border: 1.5px solid #B7B4C9; border-radius: 50%;"></div>
+    </div>
+  </div>
+
+  <!-- hero: dial de radio -->
+  <div style="display: flex; gap: 60px; align-items: center; padding: 60px 84px 44px;">
+
+    <div style="position: relative; width: 320px; height: 320px; flex-grow: 0;">
+      <!-- anillo de sintonía con marcas -->
+      <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid #2E3145;"></div>
+      <div style="position: absolute; inset: 14px; border-radius: 50%; border: 1px dashed #3A3D57;"></div>
+      <div style="position: absolute; inset: 34px; border-radius: 50%; overflow: hidden; background: #1B1D2A; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #14151F, 0 0 34px rgba(127,168,255,0.35); animation: girar-a3 40s linear infinite;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95; text-align: center; line-height: 1.4;">TU FOTO<br>(circular)</div>
+      </div>
+      <div style="position: absolute; left: 50%; top: 6px; width: 2px; height: 16px; background: #7FA8FF; transform: translateX(-50%);"></div>
+      <div style="position: absolute; left: -6px; bottom: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">88.1</div>
+      <div style="position: absolute; right: -10px; bottom: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">107.9</div>
+    </div>
+
+    <div style="flex-grow: 1;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: #E8A0C4; animation: pulso-a3 2.2s ease-in-out infinite;"></div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #E8A0C4;">Al aire · 88.1 FM</div>
+      </div>
+      <div style="font-size: 46px; font-weight: 600; line-height: 1.1;">Eduardo Martínez Vidal</div>
+      <div style="font-size: 16px; font-style: italic; color: #B7B4C9; margin-top: 8px;">Ingeniería en Informática · ciencia de datos</div>
+      <div style="font-size: 15px; color: #B7B4C9; margin-top: 16px; line-height: 1.65; max-width: 46ch; font-family: 'IBM Plex Mono', monospace;">
+        Transmisión nocturna sobre pipelines, modelos y todo lo que se
+        rompe entre el dato crudo y algo que sirve en producción.
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 26px;">
+        <div style="background: #7FA8FF; color: #14151F; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 700;">Escríbeme</div>
+        <div style="border: 1.5px solid #2E3145; color: #ECE9F5; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600;">Ver CV ↓</div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #7E7B95;">
+        <span>GitHub</span><span>LinkedIn</span><span>Kaggle</span><span>Tableau Public</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV: cinta -->
+  <div style="padding: 8px 84px 12px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7E7B95; margin-bottom: 14px;">Currículum</div>
+
+    <div style="display: flex; align-items: center; gap: 22px; background: #1B1D2A; border: 1px solid #2E3145; border-radius: 12px; padding: 22px 28px;">
+      <div style="display: flex; gap: 6px; flex-grow: 0;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; border: 3px solid #7E7B95;"></div>
+        <div style="width: 34px; height: 34px; border-radius: 50%; border: 3px solid #7E7B95;"></div>
+      </div>
+      <div style="flex-grow: 1;">
+        <div style="font-size: 17px; font-weight: 600;">CV — Eduardo Martínez Vidal</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #7E7B95; margin-top: 4px;">grabado ene 2026 · 1 cara · también en Drive</div>
+      </div>
+      <div style="border: 1.5px solid #7FA8FF; color: #7FA8FF; padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; flex-grow: 0;">▶ Descargar PDF</div>
+      <div style="border: 1.5px solid #2E3145; color: #B7B4C9; padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; flex-grow: 0;">Abrir en Drive</div>
+    </div>
+  </div>
+
+  <!-- última transmisión -->
+  <div style="padding: 32px 84px 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7E7B95;">Última transmisión</div>
+      <div style="flex-grow: 1; height: 1px; background: #2E3145;"></div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #7FA8FF;">todas →</div>
+    </div>
+
+    <div style="display: flex; gap: 22px; align-items: center; background: #1B1D2A; border: 1px solid #2E3145; border-radius: 12px; padding: 20px 26px;">
+      <div style="width: 6px; align-self: stretch; background: #7FA8FF; border-radius: 3px; flex-grow: 0;"></div>
+      <div style="flex-grow: 1;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #7E7B95;">11 ene 2026 · linux · hyprland · fedora</div>
+        <div style="font-size: 19px; font-weight: 600; margin-top: 4px;">Mi configuración de Linux usando Hyprland + Fedora</div>
+      </div>
+      <div style="border: 1.5px solid #7FA8FF; color: #7FA8FF; padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; flex-grow: 0;">Leer</div>
+    </div>
+  </div>
+
+  <!-- proyectos: transmisiones anteriores -->
+  <div style="padding: 32px 84px 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7E7B95;">Proyectos destacados</div>
+      <div style="flex-grow: 1; height: 1px; background: #2E3145;"></div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #7FA8FF;">ver los 8 →</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+      <div style="background: #1B1D2A; border: 1px solid #2E3145; border-radius: 10px; padding: 18px 20px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">ST-03 · 88.3 FM</div>
+        <div style="font-size: 16px; font-weight: 600; margin-top: 6px; line-height: 1.2;">Pronóstico de demanda</div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+          <span style="font-size: 22px; font-weight: 600; color: #7FA8FF;">6.2%</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">MAPE</span>
+        </div>
+      </div>
+      <div style="background: #1B1D2A; border: 1px solid #2E3145; border-radius: 10px; padding: 18px 20px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">RG-01 · 92.7 FM</div>
+        <div style="font-size: 16px; font-weight: 600; margin-top: 6px; line-height: 1.2;">Fraude en pagos</div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+          <span style="font-size: 22px; font-weight: 600; color: #E8A0C4;">0.94</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">AUC-ROC</span>
+        </div>
+      </div>
+      <div style="background: #1B1D2A; border: 1px solid #2E3145; border-radius: 10px; padding: 18px 20px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">NLP-02 · 101.5 FM</div>
+        <div style="font-size: 16px; font-weight: 600; margin-top: 6px; line-height: 1.2;">Sentimiento en reseñas</div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+          <span style="font-size: 22px; font-weight: 600; color: #7FA8FF;">0.89</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #7E7B95;">F1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contacto -->
+  <div style="padding: 32px 84px 56px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; background: #1B1D2A; border: 1px solid #2E3145; border-radius: 12px; padding: 26px 30px;">
+      <div>
+        <div style="font-size: 19px; font-weight: 600;">¿Un proyecto de datos en mente?</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #7E7B95; margin-top: 6px;">Respondo correo y LinkedIn el mismo día.</div>
+      </div>
+      <div style="background: #7FA8FF; color: #14151F; padding: 11px 20px; border-radius: 999px; font-size: 13px; font-weight: 700; flex-grow: 0;">eduardoalejandro.v.mtz@gmail.com</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

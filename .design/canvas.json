@@ -2,58 +2,84 @@
   "artboards": [
     {
       "file": "Main.dc.html",
-      "title": "Opción A — Tocadiscos",
+      "title": "A1 — Sala de escucha",
       "x": 0,
       "y": 0,
       "w": 1200,
-      "h": 1420
+      "h": 1360,
+      "page": "page-a"
     },
     {
-      "file": "DirectionB.dc.html",
-      "title": "Opción B — Ficha técnica",
+      "file": "DirectionA2.dc.html",
+      "title": "A2 — Prensado limitado",
       "x": 1320,
       "y": 0,
       "w": 1200,
-      "h": 1120
+      "h": 1360,
+      "page": "page-a"
     },
     {
-      "file": "DirectionC.dc.html",
-      "title": "Opción C — Consola",
+      "file": "DirectionA3.dc.html",
+      "title": "A3 — Radio nocturno",
       "x": 2640,
       "y": 0,
       "w": 1200,
-      "h": 1280
+      "h": 1360,
+      "page": "page-a"
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "B — Ficha técnica (descartada)",
+      "x": 0,
+      "y": 0,
+      "w": 1200,
+      "h": 1120,
+      "page": "page-descartadas"
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "C — Consola (descartada)",
+      "x": 1320,
+      "y": 0,
+      "w": 1200,
+      "h": 1280,
+      "page": "page-descartadas"
     }
   ],
   "annotations": [
     {
-      "id": "nota-a",
+      "id": "nota-a1",
       "x": 0,
-      "y": -150,
+      "y": -170,
       "w": 420,
-      "text": "A — Tocadiscos\nSigue el lenguaje de vinilos del portafolio: tu foto va en la etiqueta del disco (gira lento), la última publicación es \"ahora sonando\" y los proyectos son fundas.\nA favor: memorable, coherente con /proyectos.\nEn contra: la metáfora puede leerse menos formal para un reclutador."
+      "text": "A1 — Sala de escucha\nEvolución directa de la A anterior: paleta café/mustard/verde oscuro, slab serif para títulos. Tu foto en la etiqueta del disco, currículum como \"Cara B\" con botones de PDF y Drive.\nLa más cercana a lo que ya viste."
     },
     {
-      "id": "nota-b",
+      "id": "nota-a2",
       "x": 1320,
-      "y": -150,
+      "y": -170,
       "w": 420,
-      "text": "B — Ficha técnica\nColumna fija con foto, contacto, CV y estado; a la derecha bio, cifras, proyectos y última publicación.\nA favor: es lo que un reclutador escanea en 10 segundos; escala sin rediseño.\nEn contra: es la más quieta de las tres — vive de la tipografía, no del movimiento."
+      "text": "A2 — Prensado limitado\nCartel de disco: papel crema, tipografía Archivo Black enorme, bloques de color plano (coral/azul/amarillo). Foto como portada cuadrada con sombra dura. CV como pase de backstage.\nLa más gráfica y con más energía."
     },
     {
-      "id": "nota-c",
+      "id": "nota-a3",
       "x": 2640,
-      "y": -150,
+      "y": -170,
       "w": 420,
-      "text": "C — Consola\nLa portada es una terminal: whoami, ls contacto/, posts --last 1. Cursor parpadeando, salida en tarjetas.\nA favor: la más viva y con más personalidad técnica.\nEn contra: empuja foto y CV a un segundo plano, y el chiste envejece si lo ves a diario."
+      "text": "A3 — Radio nocturno\nAzul medianoche, serif editorial + mono para las etiquetas. Foto dentro de un dial de radio con aguja y frecuencias. CV como cinta de casete con dos carretes.\nLa más atmosférica; sigue siendo el lenguaje de \"disco/audio\" pero de noche."
     },
     {
-      "id": "nota-datos",
+      "id": "nota-descartadas",
       "x": 0,
-      "y": 1470,
-      "w": 900,
-      "text": "Datos reales del sitio (publicación de Hyprland + Fedora, proyectos ST-03 / RG-01 / NLP-02 con sus métricas). Lo que falta es tuyo: la foto, el PDF del CV y los enlaces de Kaggle y Tableau — van marcados como [TU ...]. Las cifras de la Opción B (8 proyectos, 14 publicaciones) son de ejemplo."
+      "y": -170,
+      "w": 500,
+      "text": "Bocetos anteriores (ficha técnica y consola) — los dejé aquí por si quieres retomar algo, pero el rumbo elegido es el de disco/audio.",
+      "page": "page-descartadas"
     }
   ],
-  "launch": { "view": "canvas" }
+  "pages": [
+    { "id": "page-a", "name": "Variantes de A" },
+    { "id": "page-descartadas", "name": "Descartadas" }
+  ],
+  "launch": { "view": "canvas", "page": "page-a" }
 }

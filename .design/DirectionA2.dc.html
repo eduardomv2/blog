@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: "Archivo", ui-sans-serif, system-ui, sans-serif; }
+    a { color: #E8543A; text-decoration: none; }
+    a:hover { color: #c9432b; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #F5EFE4; color: #1C1B1F;">
+
+  <!-- header -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 84px; border-bottom: 2px solid #1C1B1F;">
+    <div style="font-family: 'Archivo Black', sans-serif; font-size: 19px;">eduardomv.xyz</div>
+    <div style="display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 600; color: #4A4640;">
+      <div>Publicaciones</div>
+      <div>Tags</div>
+      <div>Proyectos</div>
+      <div style="width: 18px; height: 18px; border: 2px solid #1C1B1F; border-radius: 50%;"></div>
+    </div>
+  </div>
+
+  <!-- hero: cartel de disco -->
+  <div style="position: relative; padding: 56px 84px 44px; overflow: hidden;">
+    <div style="position: absolute; right: -60px; top: -40px; width: 340px; height: 340px; border-radius: 50%; background: repeating-radial-gradient(circle, #15100F 0 4px, #2a201c 4px 8px); opacity: 0.9;"></div>
+    <div style="position: absolute; right: 40px; top: 40px; width: 260px; height: 260px; border-radius: 50%; border: 3px dashed #E8543A; opacity: 0.5;"></div>
+
+    <div style="position: relative; display: flex; gap: 52px; align-items: flex-end;">
+      <!-- foto: portada cuadrada -->
+      <div style="width: 300px; height: 300px; flex-grow: 0; background: #FFFFFF; border: 3px solid #1C1B1F; box-shadow: 10px 10px 0 #E8543A; display: flex; align-items: center; justify-content: center;">
+        <div style="font-size: 12px; color: #857E72; text-align: center; line-height: 1.5;">TU FOTO<br>(portada 1:1)</div>
+      </div>
+
+      <div style="flex-grow: 1; padding-bottom: 8px;">
+        <div style="display: inline-block; background: #F2B705; color: #1C1B1F; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 16px; transform: rotate(-2deg);">Edición limitada · 2026</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 54px; line-height: 0.98; letter-spacing: -0.01em;">EDUARDO<br>MARTÍNEZ<br>VIDAL</div>
+        <div style="font-size: 16px; color: #4A4640; margin-top: 18px; max-width: 42ch; line-height: 1.55; font-weight: 500;">
+          Ing. en Informática — ciencia de datos. Pipelines de punta a punta,
+          modelos que sirven para algo y las notas de cómo se hicieron.
+        </div>
+      </div>
+    </div>
+
+    <div style="position: relative; display: flex; gap: 14px; margin-top: 32px;">
+      <div style="background: #1C1B1F; color: #F5EFE4; padding: 13px 26px; font-size: 14px; font-weight: 700;">Escríbeme →</div>
+      <div style="border: 2px solid #1C1B1F; color: #1C1B1F; padding: 13px 26px; font-size: 14px; font-weight: 700;">Ver CV ↓</div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-left: 8px; font-size: 13px; font-weight: 600; color: #4A4640;">
+        <span>GitHub</span><span>·</span><span>LinkedIn</span><span>·</span><span>Kaggle</span><span>·</span><span>Tableau</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV: pase de backstage -->
+  <div style="padding: 8px 84px 12px;">
+    <div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #857E72; margin-bottom: 14px;">Currículum</div>
+
+    <div style="display: flex; align-items: stretch; background: #1C1B1F; color: #F5EFE4; border-radius: 4px; overflow: hidden;">
+      <div style="flex-grow: 1; padding: 22px 28px;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #F2B705;">Admit One</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 22px; margin-top: 6px;">CV Digital — Eduardo Martínez Vidal</div>
+        <div style="font-size: 13px; color: #C9C4B8; margin-top: 6px;">Actualizado enero 2026 · PDF de una página</div>
+      </div>
+      <div style="width: 1px; background: repeating-linear-gradient(#F5EFE4 0 6px, transparent 6px 12px); opacity: 0.5; flex-grow: 0;"></div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 18px 26px; flex-grow: 0;">
+        <div style="background: #E8543A; color: #F5EFE4; padding: 10px 18px; font-size: 13px; font-weight: 700; text-align: center;">Descargar PDF</div>
+        <div style="border: 1.5px solid #F5EFE4; color: #F5EFE4; padding: 10px 18px; font-size: 13px; font-weight: 700; text-align: center;">Ver en Drive</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ahora sonando -->
+  <div style="padding: 32px 84px 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+      <div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #857E72;">Última publicación</div>
+      <div style="flex-grow: 1; height: 2px; background: #1C1B1F;"></div>
+      <div style="font-size: 13px; font-weight: 700; color: #E8543A;">Todas →</div>
+    </div>
+
+    <div style="display: flex; gap: 22px; align-items: center; background: #FFFFFF; border: 2px solid #1C1B1F; padding: 20px 26px;">
+      <div style="width: 8px; height: 52px; background: #2C6E9E; flex-grow: 0;"></div>
+      <div style="flex-grow: 1;">
+        <div style="font-size: 12px; color: #857E72; font-weight: 600;">11 ENE 2026 · LINUX · HYPRLAND · FEDORA</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 19px; margin-top: 4px;">Mi configuración de Linux usando Hyprland + Fedora</div>
+      </div>
+      <div style="background: #2C6E9E; color: #F5EFE4; padding: 10px 20px; font-size: 13px; font-weight: 700; flex-grow: 0;">Leer</div>
+    </div>
+  </div>
+
+  <!-- proyectos destacados -->
+  <div style="padding: 32px 84px 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+      <div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #857E72;">Proyectos destacados</div>
+      <div style="flex-grow: 1; height: 2px; background: #1C1B1F;"></div>
+      <div style="font-size: 13px; font-weight: 700; color: #E8543A;">Ver los 8 →</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px;">
+      <div style="background: #2C6E9E; color: #F5EFE4; padding: 20px;">
+        <div style="font-size: 11px; letter-spacing: 0.06em; opacity: 0.85;">ST-03</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 17px; margin-top: 6px; line-height: 1.15;">Pronóstico de demanda</div>
+        <div style="font-size: 26px; font-weight: 800; margin-top: 20px;">6.2%</div>
+        <div style="font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.85;">MAPE</div>
+      </div>
+      <div style="background: #E8543A; color: #F5EFE4; padding: 20px;">
+        <div style="font-size: 11px; letter-spacing: 0.06em; opacity: 0.85;">RG-01</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 17px; margin-top: 6px; line-height: 1.15;">Fraude en pagos</div>
+        <div style="font-size: 26px; font-weight: 800; margin-top: 20px;">0.94</div>
+        <div style="font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.85;">AUC-ROC</div>
+      </div>
+      <div style="background: #F2B705; color: #1C1B1F; padding: 20px;">
+        <div style="font-size: 11px; letter-spacing: 0.06em; opacity: 0.75;">NLP-02</div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 17px; margin-top: 6px; line-height: 1.15;">Sentimiento en reseñas</div>
+        <div style="font-size: 26px; font-weight: 800; margin-top: 20px;">0.89</div>
+        <div style="font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.75;">F1</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contacto -->
+  <div style="padding: 32px 84px 56px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; background: #1C1B1F; color: #F5EFE4; padding: 28px 32px;">
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 20px;">¿HABLAMOS DE DATOS?</div>
+        <div style="font-size: 14px; color: #C9C4B8; margin-top: 6px;">Respondo correo y LinkedIn el mismo día.</div>
+      </div>
+      <div style="background: #E8543A; color: #F5EFE4; padding: 12px 22px; font-size: 14px; font-weight: 700; flex-grow: 0;">eduardoalejandro.v.mtz@gmail.com</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
